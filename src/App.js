@@ -2,7 +2,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
@@ -13,28 +13,46 @@ import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
+const SidebarLayout = () => (
+  <>
+    <Topbar />
+    <div className="container">
+      <Sidebar />
+      <Outlet />
+    </div>
+  </>
+);
+
 //<Route path="/login" element={<Login/>} />
 
 function App() {
-  const admin = JSON.parse(
+  /*const admin = JSON.parse(
     JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isAdmin;  
+  ).currentUser.isAdmin;*/
+  const admin = true
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<SidebarLayout />}>
-          <Route index element={<Home />} />
-          <Route exact path="/users" element={<UserList />} />
-          <Route exact path="/users/:id" element={<User />} />
-          <Route exact path="/newUser" element={<NewUser />} />
-          <Route exact path="/products" element={<ProductList />} />
-          <Route exact path="/products/:id" element={<Product />} />
-          <Route exact path="/newProduct" element={<NewProduct />} />
-        </Route>
-        <Route exact path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <>
+        <Topbar />
+        <div className="container">
+          <Sidebar />
+          <Routes>
+            <Route
+              path="/login"
+              element={admin ? <Navigate to="/" /> : <Login />}
+            />
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="/users" element={<UserList />}></Route>
+            <Route path="/user/:userId" element={<User />}></Route>
+            <Route path="/newUser" element={<NewUser />}></Route>
+            <Route path="/products" element={<ProductList />}></Route>
+            <Route path="/product/:productId" element={<Product />}></Route>
+            <Route path="/newproduct" element={<NewProduct />}></Route>
+          </Routes>
+        </div>
+      </>
+    </Router>
   );
-};
+}; 
 
 export default App;
