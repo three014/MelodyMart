@@ -1,3 +1,11 @@
+# Admin page for Music Store Backend
+# Notes
+To fix: User.jsx filled with dummy data, needs to pull from db
+Issues with parse admin is true or false in App.js
+Also in App.js, homepage and toolbar should not display unless admin token is true
+Small widget is broken, doesn't display users from DB
+Product page only displays 8, not 15
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
