@@ -1,5 +1,5 @@
 {
     "username":"[mongodb username]",
     "password":"[mongodb password]",
-    "conn-url":"[mongodb server url (example: servernamething.abcdefg.mongodb.net)"
+    "conn-url":"[mongodb server url (example: servernamething.abcdefg.mongodb.net)]"
 }

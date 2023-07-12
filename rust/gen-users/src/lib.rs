@@ -75,6 +75,8 @@ enum Action {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct User {
+    #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
+    id: Option<u32>,
     firstname: String,
     lastname: String,
     username: String,
@@ -82,6 +84,8 @@ struct User {
     password: String,
     is_admin: bool,
     img: String,
+    #[serde(rename = "__v", skip_serializing_if = "Option::is_none")]
+    v: Option<i32>,
 }
 
 impl From<User> for mongodb::error::Result<Document> {
@@ -401,7 +405,7 @@ mod macros {
     #[macro_export]
     macro_rules! request_base {
         ($txt:expr) => {
-            format!("https://randomuser.me/api/?results={}&nat=us,mx,ca&inc=gender,name,email,login,picture&noinfo", $txt)
+            format!("https://randomuser.me/api/?results={}&inc=gender,name,email,login,picture&noinfo", $txt)
         };
     }
 }
@@ -467,6 +471,7 @@ mod response {
     impl From<UserResponse> for User {
         fn from(value: UserResponse) -> Self {
             User {
+                id: None,
                 firstname: value.name.first,
                 lastname: value.name.last,
                 username: value.login.username,
@@ -474,6 +479,7 @@ mod response {
                 password: value.login.password,
                 is_admin: false,
                 img: value.picture.medium,
+                v: None,
             }
         }
     }

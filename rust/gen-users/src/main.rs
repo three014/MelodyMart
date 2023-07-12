@@ -1,3 +1,6 @@
+#[global_allocator]
+static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
+
 use gen_users::{GenUsersCli, landing};
 use std::error::Error;
 
