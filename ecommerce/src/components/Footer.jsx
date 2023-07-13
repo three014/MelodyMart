@@ -80,14 +80,7 @@ const Footer = () => {
             <Left>
                 <Logo>Melody Mart</Logo>
                 <Desc>
-                Then out spake brave Horatius,
-                The Captain of the Gate:
-                “To every man upon this earth
-                Death cometh soon or late.
-                And how can man die better
-                Than facing fearful odds,
-                For the ashes of his fathers,
-                And the temples of his gods,
+                Discover, Play, Elevate: Your One-Stop Shop for all Things Musical. 
                 </Desc>
                 <SocialContainer>
                     <SocialIcon color="3B5999">
@@ -109,12 +102,12 @@ const Footer = () => {
                 <List>
                     <ListItem>Home</ListItem>
                     <ListItem>Cart</ListItem>
-                    <ListItem>Man Fashion</ListItem>
-                    <ListItem>Woman Fashion</ListItem>
-                    <ListItem>Accessories</ListItem>
+                    <ListItem>Percussion</ListItem>
+                    <ListItem>Brass</ListItem>
+                    <ListItem>Woodwinds</ListItem>
+                    <ListItem>Electronics</ListItem>
+                    <ListItem>Strings</ListItem>
                     <ListItem>My Account</ListItem>
-                    <ListItem>Order Tracking</ListItem>
-                    <ListItem>Wishlist</ListItem>
                     <ListItem>Wishlist</ListItem>
                     <ListItem>Terms</ListItem>
                 </List>
@@ -122,7 +115,7 @@ const Footer = () => {
             <Right>
                 <Title>Contact</Title>
                 <ContactItem>
-                    <Room style={{marginRight:"10px"}}/> P. Sherman 42 Wallaby Way, Sydney
+                    <Room style={{marginRight:"10px"}}/> 1 UTSA Circle, San Antonio, TX 78249
                 </ContactItem>
                 <ContactItem>
                     <Phone style={{marginRight:"10px"}}/> +314 159 265 3592

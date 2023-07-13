@@ -13,6 +13,8 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.6;
     ${mobile({ height: "20vh" })}
 `;
 
@@ -29,9 +31,10 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-    color:white;
+    color:black;
+    text-align: center;
     margin-bottom: 20px;
-    text-decoration: underline;
+    font-weight: bold;
 `;
 
 const Button = styled.button`
@@ -51,7 +54,6 @@ const CategoryItem = ({item}) => {
             <Image src={item.img}/>
             <Info>
                 <Title>{item.title}</Title>
-                <Button>Clicky Click</Button>
             </Info>
             </Link>
         </Container>

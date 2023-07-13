@@ -54,6 +54,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
     height: 80%;
+    opacity: 0.8;
 `;
 
 const InfoContainer = styled.div`
