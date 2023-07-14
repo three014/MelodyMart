@@ -1,7 +1,7 @@
 #[global_allocator]
 static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-use gen_users::{GenUsersCli, landing};
+use gen_users::{GenUsersCli, launch};
 use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -11,5 +11,5 @@ fn main() -> Result<(), Box<dyn Error>> {
         .worker_threads(2)
         .build()?;
 
-    Ok(rt.block_on(landing(args))?)
+    Ok(rt.block_on(launch(args))?)
 }
