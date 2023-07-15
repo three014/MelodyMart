@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { popularProducts } from "../data";
 import Product from "./Product";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -60,7 +59,7 @@ const Products = ({ category,filters,sort }) => {
             {category
                 ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
                 : products
-                    .slice(0, 8)
+                    .slice(0, 20)
                     .map((item) => <Product item={item} key={item.id} />)}
         </Container>
     );

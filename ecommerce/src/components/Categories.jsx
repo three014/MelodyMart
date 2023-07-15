@@ -10,6 +10,7 @@ const Container = styled.div`
     ${mobile({ padding: "0px", flexDirection: "column" })}
 `;
 
+
 const Categories = () => {
     return <Container>
         {categories.map(item=>(

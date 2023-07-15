@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
 
@@ -18,6 +19,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
+    background-color: #f5fafd;
     ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
@@ -25,11 +27,22 @@ const ImgContainer = styled.div`
     flex: 1;
 `;
 
+const BlackContainer = styled.div`
+    height: 3px;
+    background-color: black;
+`;
+
 const Image = styled.img`
     width: 100%;
-    height: 140vh;
-    object-fit: cover;
+    height: 100vh;
+    object-fit: contain;
     ${mobile({ height: "40vh" })}
+`;
+
+const HomeContainer = styled.div`
+    flex: 1;
+    padding: 25px 25px;
+    ${mobile({ padding: "10px" })}
 `;
 
 const InfoContainer = styled.div`
@@ -51,45 +64,12 @@ const Price = styled.span`
     font-size: 40px;
 `;
 
-const FilterContainer = styled.div`
-    width: 50%;
-    margin: 30px 0px;
-    display: flex;
-    justify-content: space-between;
-    ${mobile({ width: "100%" })}
-`;
-
-const Filter = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-const FilterTitle = styled.span`
-    font-size: 20px;
-    font-weight: 200;
-`;
-
-const FilterColor = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: ${(props) => props.color};
-    margin: 0px 5px;
-    cursor: pointer;
-`;
-
-const FilterSize = styled.select`
-    margin-left: 10px;
-    padding: 5px;
-`;
-
-const FilterSizeOption = styled.option``;
-
 const AddContainer = styled.div`
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
     ${mobile({ width: "100%" })}
 `;
 
@@ -127,8 +107,6 @@ const Product = () => {
     const id = location.pathname.split("/")[2];
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
-    const [color, setColor] = useState("");
-    const [size, setSize] = useState("");
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -151,7 +129,7 @@ const Product = () => {
     
     const handleClick = () => {
         dispatch(
-            addProduct({ ...product, quantity, color, size })
+            addProduct({ ...product, quantity})
         );
     };
 
@@ -159,6 +137,12 @@ const Product = () => {
         <Container>
             <Navbar/>
             <Announcement/>
+            <HomeContainer>
+                <Link to="/">
+                    <Button>BACK HOME</Button>
+                </Link>
+            </HomeContainer>
+            <BlackContainer></BlackContainer>
             <Wrapper>
                 <ImgContainer>
                     <Image src={product.img} />
@@ -166,25 +150,9 @@ const Product = () => {
                 <InfoContainer>
                     <Title>{product.title}</Title>
                     <Desc>
-                        {product.description}
+                        {product.desc}
                     </Desc>
-                    <Price>￥ {product.price}</Price>
-                    <FilterContainer>
-                        <Filter>
-                            <FilterTitle>Color</FilterTitle>
-                            {product.color?.map((c) => (
-                                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
-                            ))}
-                        </Filter>
-                        <Filter>
-                            <FilterTitle>Size</FilterTitle>
-                            <FilterSize onChange={(e) => setSize(e.target.value)}>
-                                {product.size?.map((s) => (
-                                    <FilterSizeOption key={s}>{s}</FilterSizeOption>
-                            ))}
-                            </FilterSize>
-                        </Filter>
-                    </FilterContainer>
+                    <Price>$ {product.price}</Price>
                     <AddContainer>
                         <AmountContainer>
                             <Remove onClick={() => handleQuantity("dec")} />
@@ -195,6 +163,7 @@ const Product = () => {
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>
+            <BlackContainer></BlackContainer>
             <Newsletter/>
             <Footer/>
         </Container>

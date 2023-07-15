@@ -2,10 +2,10 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
 import StripeCheckout from "react-stripe-checkout";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
@@ -16,6 +16,7 @@ const Container = styled.div``;
 
 const Wrapper = styled.div`
     padding: 20px;
+    background-color: #f5fafd;
     ${mobile({ padding: "10px" })}
 `;
 
@@ -39,16 +40,6 @@ const TopButton = styled.button`
     background-color: ${(props) =>
         props.type === "filled" ? "black" : "transparent"};
     color: ${(props) =>props.type === "filled" && "white"};
-`;
-
-const TopTexts = styled.div`
-    ${mobile({ display: "none" })}
-`;
-
-const TopText = styled.span`
-    text-decoration: underline;
-    cursor: pointer;
-    margin: 0px 10px;
 `;
 
 const Bottom = styled.div`
@@ -86,15 +77,6 @@ const Details = styled.div`
 const ProductName = styled.span``;
 
 const ProductId = styled.span``;
-
-const ProductColor = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: ${(props)=>props.color}
-`;
-
-const ProductSize = styled.span``;
 
 const PriceDetail = styled.div`
     flex: 1;
@@ -173,11 +155,9 @@ const Cart = () => {
             <Wrapper>
                 <Title>YOUR CART</Title>
                 <Top>
+                    <Link to="/">
                     <TopButton>CONTINUE SHOPPING</TopButton>
-                    <TopTexts>
-                        <TopText>Shopping Bag(2)</TopText>
-                        <TopText>Your Wishlist (0)</TopText>
-                    </TopTexts>
+                    </Link>
                     <TopButton type="filled">CHECKOUT NOW</TopButton>
                 </Top>
                 <Bottom>
@@ -193,19 +173,13 @@ const Cart = () => {
                                     <ProductId>
                                         <b>ID:</b> {product._id}
                                     </ProductId>
-                                    <ProductColor color={product.color} />
-                                    <ProductSize>
-                                        <b>Size:</b> {product.size}
-                                    </ProductSize>
                                     </Details>
                                 </ProductDetail>
                                 <PriceDetail>
                                     <ProductAmountContainer>
-                                        <Add/>
-                                        <ProductAmount>{product.quantity}</ProductAmount>
-                                        <Remove/>
+                                        <ProductAmount>Amount: {product.quantity}</ProductAmount>
                                     </ProductAmountContainer>
-                                    <ProductPrice>￥ {product.price * product.quantity}</ProductPrice>
+                                    <ProductPrice>$ {(product.price * product.quantity).toFixed(2)}</ProductPrice>
                                 </PriceDetail>
                             </Product>
                         ))}
@@ -215,19 +189,19 @@ const Cart = () => {
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>￥ {cart.total}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {cart.total.toFixed(2)}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Estimated Shipping</SummaryItemText>
-                            <SummaryItemPrice>￥ 590</SummaryItemPrice>
+                            <SummaryItemPrice>$ 25.00</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Shipping Discount</SummaryItemText>
-                            <SummaryItemPrice>￥ -590</SummaryItemPrice>
+                            <SummaryItemPrice>- $ 25.00</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem type="total">
                             <SummaryItemText>Total</SummaryItemText>
-                            <SummaryItemPrice>￥ {cart.total}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {cart.total.toFixed(2)}</SummaryItemPrice>
                         </SummaryItem>
                         <Button>CHECKOUT NOW</Button>
                     </Summary>

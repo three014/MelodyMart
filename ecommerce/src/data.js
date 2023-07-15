@@ -54,38 +54,3 @@ export const categories = [
     category:"Strings"
   },
 ];
-
-export const popularProducts = [
-  {
-    id:1,
-    img:"https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-  },
-  {
-    id:2,
-    img:"https://m.media-amazon.com/images/I/51n8TpEWr9L.jpg",
-  },
-  {
-    id:3,
-    img:"https://images.goodsmile.info/cgm/images/product/20091023/2604/7634/large/08be37aaaed70d28eb792201f2e57937.jpg",
-  },
-  {
-    id:4,
-    img:"https://d33bq1v1gicys9.cloudfront.net/original/77f3266ee05fe784e901ccce5cd0a8d0_hero-image.jpg",
-  },
-  {
-    id:5,
-    img:"https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
-  },
-  {
-    id:6,
-    img:"https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
-  },
-  {
-    id:7,
-    img:"https://nefariousreviews.files.wordpress.com/2021/04/k-on-halt.jpg?w=474&h=267",
-  },
-  {
-    id:8,
-    img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
-  },
-];

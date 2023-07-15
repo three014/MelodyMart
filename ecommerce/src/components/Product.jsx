@@ -1,8 +1,4 @@
-import {
-    FavoriteBorderOutlined,
-    SearchOutlined,
-    ShoppingCartOutlined,
-} from '@mui/icons-material';
+import { SearchOutlined } from '@mui/icons-material';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
@@ -26,8 +22,8 @@ const Info = styled.div`
 const Container = styled.div`
     flex: 1;
     margin: 5px;
-    min-width: 380px;
-    height: 500px;
+    min-width: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,23 +67,19 @@ const Icon = styled.div`
 
 const Product = ({ item }) => {
     return (
+        
         <Container>
             <Circle/>
             <Image src={item.img}/>
             <Info>
                 <Icon>
-                    <ShoppingCartOutlined/>
-                </Icon>
-                <Icon>
                     <Link to={`/product/${item._id}`}>
                     <SearchOutlined/>
                     </Link>
                 </Icon>
-                <Icon>
-                    <FavoriteBorderOutlined/>
-                </Icon>
             </Info>
         </Container>
+        
     )
 }
 
