@@ -1,17 +1,13 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  Timeline,
   TrendingUp,
   PermIdentity,
   Storefront,
   AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
   WorkOutline,
-  Report,
+  Add,
+  History
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -29,10 +25,6 @@ export default function Sidebar() {
             </li>
             </Link>
             <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
             </li>
@@ -44,39 +36,28 @@ export default function Sidebar() {
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                View Users
               </li>
             </Link>
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                View Products
+              </li>
+            </Link>
+            <Link to="/newproduct" className="link">
+              <li className="sidebarListItem">
+                <Add className="sidebarIcon" />
+                Add New Product
               </li>
             </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              Current Orders
             </li>
             <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
-            </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
+              <History className="sidebarIcon" />
+              Order History
             </li>
           </ul>
         </div>
@@ -86,14 +67,6 @@ export default function Sidebar() {
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
               Manage
-            </li>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Reports
             </li>
           </ul>
         </div>

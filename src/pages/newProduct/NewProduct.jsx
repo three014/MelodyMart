@@ -70,7 +70,7 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="addProductTitle">Create New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
@@ -118,9 +118,7 @@ export default function NewProduct() {
             <option value="false">No</option>
           </select>
         </div>
-        <button onClick={handleClick} className="addProductButton">
-          Create
-        </button>
+        <button onClick={handleClick} className="addProductButton"> Create </button>
       </form>
     </div>
   );

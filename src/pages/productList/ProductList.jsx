@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
 
+
+
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
-
+<button className="productAddButton">Create</button>
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
@@ -18,12 +20,15 @@ export default function ProductList() {
     deleteProduct(id, dispatch);
   };
 
+  <Link to="/newproduct">
+    <button className="productAddButton">Create</button>
+  </Link>
   const columns = [
-    { field: "_id", headerName: "ID", width: 220 },
+    { field: "_id", headerName: "ID", width: 100 },
     {
       field: "product",
       headerName: "Product",
-      width: 400,
+      width: 200,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -72,7 +77,7 @@ export default function ProductList() {
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
-        pageSize={15}
+        pageSize={8}
         checkboxSelection
       />
     </div>
