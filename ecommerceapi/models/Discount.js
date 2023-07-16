@@ -4,7 +4,7 @@ const DiscountSchema = new mongoose.Schema(
     {
         code: { type: String, required:true, unique:true },
         value: { type: Number, required:true },
-        condition: { type: Number },
+        condition: { type: Number, default: 0 },
     },
     { timestamps: true }
 );
