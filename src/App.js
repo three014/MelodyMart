@@ -10,6 +10,9 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import DiscountList from "./pages/discountList/DiscountList";
+import NewDiscount from "./pages/newDiscount/NewDiscount";
+import OrderList from "./pages/orderList/OrderList";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
@@ -47,7 +50,10 @@ function App() {
             <Route path="/newUser" element={<NewUser />}></Route>
             <Route path="/products" element={<ProductList />}></Route>
             <Route path="/product/:productId" element={<Product />}></Route>
-            <Route path="/newproduct" element={<NewProduct />}></Route>
+            <Route path="/newProduct" element={<NewProduct />}></Route>
+            <Route path="/discounts" element={<DiscountList />}></Route>
+            <Route path="/newDiscount" element={<NewDiscount />}></Route>
+            <Route path="/orderList" element={<OrderList />}></Route>
           </Routes>
         </div>
       </>

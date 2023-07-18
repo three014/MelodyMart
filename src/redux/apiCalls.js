@@ -15,6 +15,21 @@ import {
   addProductSuccess,
 } from "./productRedux";
 
+import {
+  getDiscountStart,
+  getDiscountSuccess,
+  getDiscountFailure,
+  deleteDiscountStart,
+  deleteDiscountSuccess,
+  deleteDiscountFailure,
+  updateDiscountStart,
+  updateDiscountSuccess,
+  updateDiscountFailure,
+  addDiscountStart,
+  addDiscountSuccess,
+  addDiscountFailure,
+} from "./discountRedux";
+
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
@@ -63,3 +78,45 @@ export const addProduct = async (product, dispatch) => {
     dispatch(addProductFailure());
   }
 };
+
+//-----API Calls for Discounts------
+
+export const getDiscounts = async (dispatch) => {
+  dispatch(getDiscountStart());
+  try {
+    const res = await publicRequest.get("/discounts");
+    dispatch(getDiscountSuccess(res.data));
+  } catch (err) {
+    dispatch(getDiscountFailure());
+  }
+};
+
+export const deleteDiscount = async (id, dispatch) => {
+  dispatch(deleteDiscountStart());
+  try {
+    // const res = await userRequest.delete(`/products/${id}`);
+    dispatch(deleteDiscountSuccess(id));
+  } catch (err) {
+    dispatch(deleteDiscountFailure());
+  }
+};
+
+export const updateDiscount = async (id, discount, dispatch) => {
+  dispatch(updateDiscountStart());
+  try {
+    // update
+    dispatch(updateDiscountSuccess({ id, discount }));
+  } catch (err) {
+    dispatch(updateDiscountFailure());
+  }
+};
+export const addDiscount = async (discount, dispatch) => {
+  dispatch(addDiscountStart());
+  try {
+    const res = await userRequest.post(`/discounts`, discount);
+    dispatch(addDiscountSuccess(res.data));
+  } catch (err) {
+    dispatch(addDiscountFailure());
+  }
+};
+
