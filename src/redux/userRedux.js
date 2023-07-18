@@ -4,6 +4,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     currentUser: null,
+    users: [],
     isFetching: false,
     error: false,
   },
@@ -27,4 +28,3 @@ const userSlice = createSlice({
 
 export const { loginStart, loginSuccess, loginFailure } = userSlice.actions;
 export default userSlice.reducer;
-

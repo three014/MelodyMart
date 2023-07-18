@@ -109,7 +109,7 @@ export default function NewProduct() {
         </div>
         <div className="addProductItem">
           <label>Categories</label>
-          <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
+          <input type="text" placeholder="strings, brass" onChange={handleCat} />
         </div>
         <div className="addProductItem">
           <label>Stock</label>
