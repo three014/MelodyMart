@@ -30,6 +30,8 @@ import {
   addDiscountFailure,
 } from "./discountRedux";
 
+import{ getOrderStart, getOrderSuccess, getOrderFailure, } from "./orderRedux";
+
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
@@ -120,3 +122,15 @@ export const addDiscount = async (discount, dispatch) => {
   }
 };
 
+
+//-----API Calls for Orders-----
+
+export const getOrders = async (dispatch) => {
+  dispatch(getOrderStart());
+  try {
+    const res = await publicRequest.get("/orders");
+    dispatch(getOrderSuccess(res.data));
+  } catch (err) {
+    dispatch(getOrderFailure());
+  }
+};

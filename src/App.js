@@ -12,19 +12,9 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import DiscountList from "./pages/discountList/DiscountList";
 import NewDiscount from "./pages/newDiscount/NewDiscount";
+import Discount from "./pages/discount/Discount";
 import OrderList from "./pages/orderList/OrderList";
-import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
 
-const SidebarLayout = () => (
-  <>
-    <Topbar />
-    <div className="container">
-      <Sidebar />
-      <Outlet />
-    </div>
-  </>
-);
 
 //<Route path="/login" element={<Login/>} />
 
@@ -53,7 +43,8 @@ function App() {
             <Route path="/newProduct" element={<NewProduct />}></Route>
             <Route path="/discounts" element={<DiscountList />}></Route>
             <Route path="/newDiscount" element={<NewDiscount />}></Route>
-            <Route path="/orderList" element={<OrderList />}></Route>
+            <Route path="/discount/:discountId" element={<Discount />}></Route>
+            <Route path="/orders" element={<OrderList />}></Route>
           </Routes>
         </div>
       </>

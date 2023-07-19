@@ -14,10 +14,10 @@ export default function DiscountList(){
     };
 
     const columns = [
-        { field: '_id', headerName: 'ID', width: 150 },
-        { field: 'code', headerName: 'Discount Code', width: 150 },
-        { field: 'value', headerName: 'Value', width: 150 },
-        { field: 'condition', headerName: 'Condition', width: 150 },
+        { field: "_id", headerName: "ID", width: 150 },
+        { field: "code", headerName: "Discount Code", width: 200 },
+        { field: "value", headerName: "Value", width: 150 },
+        { field: "condition", headerName: "Condition", width: 150 },
         {
             field: "action",
             headerName: "Action",
@@ -38,20 +38,16 @@ export default function DiscountList(){
           },
       ];
       
-  //    const rows = [
-  //      { id: 1, code: 'WelcomeBack10', value: 10, condition: 20 },
-  //    ];
-    
     return (
         <div className="discountList">
             <DataGrid
                 rows={discounts}
                 disableSelectionOnClick
                 columns={columns}
-                getRowId={(row) => row._id}
+                getRowId={(row)=>row._id}
                 pageSize={15}
                 checkboxSelection
             />
         </div>
-    )
-}
+    );
+};

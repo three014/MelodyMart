@@ -6,16 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct } from "../../redux/apiCalls";
 
 
-
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
-
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);
   };
-
  
   const columns = [
     { field: "_id", headerName: "ID", width: 100 },
@@ -70,7 +67,7 @@ export default function ProductList() {
         rows={products}
         disableSelectionOnClick
         columns={columns}
-        getRowId={(row) => row._id}
+        getRowId={(row)=>row._id}
         pageSize={15}
         checkboxSelection
       />

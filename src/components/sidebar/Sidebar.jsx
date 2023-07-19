@@ -1,7 +1,6 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  TrendingUp,
   PermIdentity,
   Storefront,
   AttachMoney,
@@ -24,10 +23,6 @@ export default function Sidebar() {
               Home
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -51,7 +46,7 @@ export default function Sidebar() {
                 View Discounts
               </li>
             </Link>
-            <Link to="/orderList" className="link">
+            <Link to="/orders" className="link">
               <li className="sidebarListItem">
                 <AttachMoney className="sidebarIcon" />
                 View Orders

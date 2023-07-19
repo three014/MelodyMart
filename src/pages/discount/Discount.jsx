@@ -7,7 +7,7 @@ export default function Discount(){
     const discountId = location.pathname.split("/")[2];
     
     const discount = useSelector((state) =>
-        state.discount.discounts.find((discount) => discount._id == discountId)
+        state.discount.discounts.find((discount) => discount._id === discountId)
     );
     
     return(
