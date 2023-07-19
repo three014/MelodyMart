@@ -6,7 +6,6 @@ const {
 const router = require("express").Router();
 
 //CREATE
-
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newDiscount = new Discount(req.body);
 
