@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import "./product.css";
-import { Publish } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 
 
@@ -11,8 +10,6 @@ export default function Product() {
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
-
-
 
   return (
     <div className="product">
@@ -36,7 +33,7 @@ export default function Product() {
             </div>
             <div className="productInfoItem">
               <span className="productInfoKey">in stock:</span>
-              <span className="productInfoValue">{product.inStock}</span>
+              <span className="productInfoValue">Yes</span>
             </div>
             <div className="productInfoItem">
               <span className="productInfoKey">quantity:</span>
@@ -52,6 +49,8 @@ export default function Product() {
             <input type="text" placeholder={product.title} />
             <label>Product Description</label>
             <input type="text" placeholder={product.desc} />
+            <label>Product Image URL</label>
+            <input type="text" placeholder={product.img} />
             <label>Price</label>
             <input type="text" placeholder={product.price} />
             <label>In Stock</label>
@@ -61,13 +60,6 @@ export default function Product() {
             </select>
           </div>
           <div className="productFormRight">
-            <div className="productUpload">
-              <img src={product.img} alt="" className="productUploadImg" />
-              <label for="file">
-                <Publish />
-              </label>
-              <input type="file" id="file" style={{ display: "none" }} />
-            </div>
             <button className="productButton">Update Product Details</button>
           </div>
         </form>
