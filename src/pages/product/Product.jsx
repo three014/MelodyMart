@@ -12,6 +12,8 @@ export default function Product() {
     state.product.products.find((product) => product._id === productId)
   );
 
+
+
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -66,7 +68,7 @@ export default function Product() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Update</button>
+            <button className="productButton">Update Product Details</button>
           </div>
         </form>
       </div>

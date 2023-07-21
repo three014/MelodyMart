@@ -144,6 +144,7 @@ export const updateDiscount = async (id, discount, dispatch) => {
     dispatch(updateDiscountFailure());
   }
 };
+
 export const addDiscount = async (discount, dispatch) => {
   dispatch(addDiscountStart());
   try {

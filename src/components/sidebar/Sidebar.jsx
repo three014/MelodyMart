@@ -4,7 +4,6 @@ import {
   PermIdentity,
   Storefront,
   AttachMoney,
-  WorkOutline,
   Add,
   LocalOffer
 } from "@material-ui/icons";
@@ -64,15 +63,6 @@ export default function Sidebar() {
                 New Discount
               </li>
             </Link>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <WorkOutline className="sidebarIcon" />
-              Manage
-            </li>
           </ul>
         </div>
       </div>
