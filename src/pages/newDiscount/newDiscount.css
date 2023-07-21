@@ -1,0 +1,40 @@
+.newDiscount{
+    flex: 4;
+    margin-left: 30px;
+}
+
+.addDiscountForm {
+  margin-top: 10px;
+}
+
+.addDiscountItem {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.addDiscountItem > label {
+  color: gray;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.addDiscountItem > input {
+  padding: 10px;
+}
+
+.addDiscountItem > select {
+  padding: 10px;
+}
+
+.addDiscountButton {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

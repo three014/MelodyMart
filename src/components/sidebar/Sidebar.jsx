@@ -1,13 +1,11 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  TrendingUp,
   PermIdentity,
   Storefront,
   AttachMoney,
-  WorkOutline,
   Add,
-  History
+  LocalOffer
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -24,10 +22,6 @@ export default function Sidebar() {
               Home
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -45,29 +39,30 @@ export default function Sidebar() {
                 View Products
               </li>
             </Link>
-            <Link to="/newproduct" className="link">
+            <Link to="/discounts" className="link">
+              <li className="sidebarListItem">
+                <LocalOffer className="sidebarIcon" />
+                View Discounts
+              </li>
+            </Link>
+            <Link to="/orders" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                View Orders
+              </li>
+            </Link>
+            <Link to="/newProduct" className="link">
               <li className="sidebarListItem">
                 <Add className="sidebarIcon" />
                 Add New Product
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Current Orders
-            </li>
-            <li className="sidebarListItem">
-              <History className="sidebarIcon" />
-              Order History
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <WorkOutline className="sidebarIcon" />
-              Manage
-            </li>
+            <Link to="/newDiscount" className="link">
+              <li className="sidebarListItem">
+                <Add className="sidebarIcon" />
+                New Discount
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

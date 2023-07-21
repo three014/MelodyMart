@@ -1,6 +1,10 @@
 # Admin page for Music Store Backend
 # Notes
 
+Package.json name change broke the website so if you are using an old node-modules like I have and just transferring between the different iterations, you need to delete the nodules folder and reinstall npm --force.
+
+old notes below, ignore
+
 Lastest commit notes from old admin branch before I broke it in half:
 "Updated product list page, now shows all 15 products and quantity, thank you Lasya and Brandon. There was another change I think I did, I can't remember. Oh well, easy come easy go."
 

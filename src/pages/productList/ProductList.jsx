@@ -7,22 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
 
 
-
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
-<button className="productAddButton">Create</button>
+
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
-
+  
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);
   };
-
-  <Link to="/newproduct">
-    <button className="productAddButton">Create</button>
-  </Link>
+ 
   const columns = [
     { field: "_id", headerName: "ID", width: 100 },
     {
@@ -76,8 +72,8 @@ export default function ProductList() {
         rows={products}
         disableSelectionOnClick
         columns={columns}
-        getRowId={(row) => row._id}
-        pageSize={8}
+        getRowId={(row)=>row._id}
+        pageSize={20}
         checkboxSelection
       />
     </div>
