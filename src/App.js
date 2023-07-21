@@ -31,8 +31,7 @@ function App() {
           <Sidebar />
           <Routes>
             <Route
-              path="/login"
-              element={admin ? <Navigate to="/" /> : <Login />}
+              path="/login" element={<Login />}
             />
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/users" element={<UserList />}></Route>
