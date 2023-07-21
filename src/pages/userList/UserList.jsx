@@ -1,21 +1,40 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { userRequest } from "../../requestMethods";
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  const [users, setUsers] = useState([]);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
-  
+  useEffect(() => {
+    async function getUsers() {
+      await userRequest.get("users/").then((response => {
+        setUsers(response.data);
+      })).catch(error => {
+        const message = `An error occurred: ${error}`;
+        window.alert(message);
+      });
+    }
+
+    getUsers();
+    return;
+  }, [users.length]);
+
+  async function deleteUser(id) {
+    await fetch(`http://localhost:5000/user/${id}`, {
+      method: "DELETE"
+    });
+
+    const newUsers = users.filter((user) => user._id !== id);
+    setUsers(newUsers);
+  }
+
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 200 },
     {
-      field: "user",
+      field: "username",
       headerName: "User",
       width: 200,
       renderCell: (params) => {
@@ -50,7 +69,7 @@ export default function UserList() {
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => deleteUser(params.row.id)}
             />
           </>
         );
@@ -61,7 +80,7 @@ export default function UserList() {
   return (
     <div className="userList">
       <DataGrid
-        rows={data}
+        rows={users.map(userToRow)}
         disableSelectionOnClick
         columns={columns}
         pageSize={15}
@@ -69,4 +88,14 @@ export default function UserList() {
       />
     </div>
   );
+}
+
+
+function userToRow(user) {
+  return {
+    id: user._id,
+    username: user.username,
+    email: user.email,
+    avatar: user.img,
+  }
 }
