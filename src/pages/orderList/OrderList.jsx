@@ -1,11 +1,17 @@
 import "./orderList.css"
 import { DataGrid } from "@material-ui/data-grid";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrders } from "../../redux/apiCalls";
+import { useEffect } from "react";
 
 
 export default function OrderList(){
+    const dispatch = useDispatch();
     const orders = useSelector((state) => state.order.orders);
 
+    useEffect(() => {
+        getOrders(dispatch);
+      }, [dispatch]);
 
     const columns = [
         { field: "_id", headerName: "ID", width: 100 },
