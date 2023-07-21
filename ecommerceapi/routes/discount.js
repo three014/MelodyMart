@@ -1,8 +1,4 @@
 const Discount = require("../models/Discount");
-const {
-  verifyTokenAndAdmin,
-} = require("./verifyToken");
-
 const router = require("express").Router();
 
 //CREATE
@@ -48,6 +44,31 @@ router.get("/find/:id", async (req, res) => {
   try {
     const discount = await Discount.findById(req.params.id);
     res.status(200).json(discount);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//GET ALL DISCOUNTS
+router.get("/", async (req, res) => {
+  const qNew = req.query.new;
+  const qCategory = req.query.category;
+  try {
+    let discounts;
+
+    if (qNew) {
+      discounts = await Discount.find().sort({ createdAt: -1 }).limit(1);
+    } else if (qCategory) {
+      discounts = await Discount.find({
+        categories: {
+          $in: [qCategory],
+        },
+      });
+    } else {
+      discounts = await Discount.find();
+    }
+
+    res.status(200).json(discounts);
   } catch (err) {
     res.status(500).json(err);
   }

@@ -3,12 +3,9 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
-import StripeCheckout from "react-stripe-checkout";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { userRequest } from "../requestMethods";
-import { useHistory } from "react-router";
+import { useState } from "react";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
