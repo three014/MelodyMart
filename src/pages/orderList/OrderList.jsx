@@ -11,12 +11,22 @@ export default function OrderList(){
 
     useEffect(() => {
         getOrders(dispatch);
-      }, [dispatch]);
+    }, [dispatch]);
 
     const columns = [
         { field: "_id", headerName: "ID", width: 100 },
         { field: "userID", headerName: "User ID", width: 150 },
-        { field: "products", headerName: "Products", width: 150},
+        { 
+            field: "products", 
+            headerName: "Products", 
+            width: 150,
+            valueGetter: (params) => {
+                const products = params.row.products.map(
+                  (product) =>   `(Product ID: ${product.productID}) (Quantity: ${product.quantity})`
+                );
+                return products.join("\n\n");
+            },
+        },
         { field: "amount", headerName: "Number of Orders", width: 200 },
         { field: "address", headerName: "Address", width: 150 },
         { field: "status", headerName: "Order Status", width: 170 },

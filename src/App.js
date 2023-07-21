@@ -2,7 +2,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
@@ -15,14 +15,12 @@ import NewDiscount from "./pages/newDiscount/NewDiscount";
 import Discount from "./pages/discount/Discount";
 import OrderList from "./pages/orderList/OrderList";
 
-
 //<Route path="/login" element={<Login/>} />
 
 function App() {
   /*const admin = JSON.parse(
     JSON.parse(localStorage.getItem("persist:root")).user
   ).currentUser.isAdmin;*/
-  const admin = true
   return (
     <Router>
       <>
