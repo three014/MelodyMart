@@ -8,7 +8,7 @@ use std::error::Error;
 use tokio_stream::StreamExt;
 
 pub mod user {
-    use mongodb::bson::Document;
+    use mongodb::bson::{Document, DateTime};
     pub use response::WrappedUserResponse;
     use serde::{Deserialize, Serialize};
 
@@ -24,6 +24,8 @@ pub mod user {
         password: String,
         is_admin: bool,
         img: String,
+        created_at: DateTime,
+        updated_at: DateTime,
         #[serde(rename = "__v", skip_serializing_if = "Option::is_none")]
         v: Option<i32>,
     }
@@ -37,7 +39,8 @@ pub mod user {
 
     mod response {
         use super::User;
-        use mongodb::bson::Document;
+        use chrono::Utc;
+        use mongodb::bson::{Document, DateTime};
         use rayon::prelude::{IntoParallelIterator, ParallelIterator};
         use serde::{Deserialize, Serialize};
 
@@ -102,6 +105,8 @@ pub mod user {
                     password: value.login.password,
                     is_admin: false,
                     img: value.picture.medium,
+                    created_at: DateTime::from_chrono(Utc::now()),
+                    updated_at: DateTime::from_chrono(Utc::now()),
                     v: Some(0),
                 }
             }
@@ -234,7 +239,7 @@ impl List {
         println!("Got users, printing now!");
         while let Some(user) = users.next().await {
             if let Ok(user) = user {
-                println!("{}", user);
+                println!("{},", serde_json::to_string_pretty(&user)?);
                 num_users += 1;
             }
         }

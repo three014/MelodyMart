@@ -131,7 +131,7 @@ async fn handle_add_choice(buf: &mut String) -> std::io::Result<Result<Action, P
         Ok::<(), std::io::Error>(())
     }
     .await?;
-    let database = buf.clone();
+    let database = buf.trim().to_owned();
 
     buf.clear();
     async {
@@ -156,7 +156,7 @@ async fn handle_remove_choice(buf: &mut String) -> std::io::Result<Result<Action
         Ok::<(), std::io::Error>(())
     }
     .await?;
-    let database = buf.clone();
+    let database = buf.trim().to_owned();
 
     buf.clear();
     async {
@@ -181,7 +181,7 @@ async fn handle_clear_choice(buf: &mut String) -> std::io::Result<Action> {
         Ok::<(), std::io::Error>(())
     }
     .await?;
-    let database = buf.clone();
+    let database = buf.trim().to_owned();
     Ok(Action::clear(database))
 }
 
@@ -194,7 +194,7 @@ async fn handle_list_choice(buf: &mut String) -> std::io::Result<Action> {
         Ok::<(), std::io::Error>(())
     }
     .await?;
-    let database = buf.clone();
+    let database = buf.trim().to_owned();
     Ok(Action::list(database))
 }
 
