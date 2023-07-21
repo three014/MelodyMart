@@ -27,7 +27,7 @@ export default function OrderList(){
                 return products.join("\n\n");
             },
         },
-        { field: "amount", headerName: "Number of Orders", width: 200 },
+        { field: "amount", headerName: "Total Amount", width: 200 },
         { field: "address", headerName: "Address", width: 150 },
         { field: "status", headerName: "Order Status", width: 170 },
         { field: "createdAt", headerName: "Created At", width: 150 },
