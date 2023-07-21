@@ -6,7 +6,7 @@ const {
 const router = require("express").Router();
 
 //CREATE
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/", async (req, res) => {
   const newDiscount = new Discount(req.body);
 
   try {
@@ -18,7 +18,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //UPDATE
-router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const updatedDiscount = await Discount.findByIdAndUpdate(
       req.params.id,
@@ -34,7 +34,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //DELETE
-router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Discount.findByIdAndDelete(req.params.id);
     res.status(200).json("Discount has been deleted...");
@@ -44,7 +44,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET PRODUCT
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   try {
     const discount = await Discount.findById(req.params.id);
     res.status(200).json(discount);
