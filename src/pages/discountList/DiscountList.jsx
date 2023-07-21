@@ -3,11 +3,16 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteDiscount } from "../../redux/apiCalls";
+import { deleteDiscount, getDiscounts } from "../../redux/apiCalls";
+import { useEffect } from "react";
 
 export default function DiscountList(){
     const dispatch = useDispatch();
     const discounts = useSelector((state) => state.discount.discounts);
+
+    useEffect(() => {
+      getDiscounts(dispatch);
+    }, [dispatch]);
     
     const handleDelete = (id) => {
         deleteDiscount(id, dispatch);
