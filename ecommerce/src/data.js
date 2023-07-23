@@ -43,7 +43,7 @@ export const categories = [
   },
   {
     id: 4,
-    img: "https://cdn.pianodreamers.com/wp-content/uploads/2019/12/buying-used-piano-keyboard@2x.jpg",
+    img: "https://www.worldpianonews.com/wp-content/uploads/2021/10/Rhodes-MK8-electric-piano-iso_FB.jpg",
     title: "Electronics",
     category:"Electronics"
   },
