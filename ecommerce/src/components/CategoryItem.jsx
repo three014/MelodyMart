@@ -37,16 +37,6 @@ const Title = styled.h1`
     font-weight: bold;
 `;
 
-const Button = styled.button`
-    border:none;
-    padding: 10px;
-    background-color: white;
-    color: gray;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 10px;
-`;
-
 const CategoryItem = ({item}) => {
     return (
         <Container>

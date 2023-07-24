@@ -43,7 +43,7 @@ export const categories = [
   },
   {
     id: 4,
-    img: "https://www.worldpianonews.com/wp-content/uploads/2021/10/Rhodes-MK8-electric-piano-iso_FB.jpg",
+    img: "https://support.musicgateway.com/wp-content/uploads/2021/03/Copy-of-800-x-500-Blog-Post-42-2.png",
     title: "Electronics",
     category:"Electronics"
   },

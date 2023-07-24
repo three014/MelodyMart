@@ -5,9 +5,6 @@ import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
-const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 
@@ -140,11 +137,7 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
-    // Fix later, do we even need checkout tokens with swipe? 1:05:42, third video
     const cart = useSelector((state) => state.cart);
-    const [stripeToken, setStripeToken] = useState(null);
-    //const history = useHistory();
-
     return (
         <Container>
             <Navbar/>
