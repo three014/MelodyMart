@@ -15,12 +15,8 @@ import NewDiscount from "./pages/newDiscount/NewDiscount";
 import Discount from "./pages/discount/Discount";
 import OrderList from "./pages/orderList/OrderList";
 
-//<Route path="/login" element={<Login/>} />
-
 function App() {
-  /*const admin = JSON.parse(
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isAdmin;*/
+
   return (
     <Router>
       <>
