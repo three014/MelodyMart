@@ -52,7 +52,7 @@ export const discountSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //UPDATE
+    //ADD
     addDiscountStart: (state) => {
       state.isFetching = true;
       state.error = false;

@@ -5,6 +5,9 @@ import {
   getUserStart,
   getUserSuccess,
   getUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
@@ -64,6 +67,16 @@ export const getUsers = async (dispatch) => {
   }
 };
 
+export const updateUser = async (id, user, dispatch) => {
+  dispatch(updateUserStart());
+  try {
+    // update
+    dispatch(updateUserSuccess({ id, user }));
+  } catch (err) {
+    dispatch(updateUserFailure());
+  }
+};
+
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
@@ -103,6 +116,7 @@ export const updateProduct = async (id, product, dispatch) => {
     dispatch(updateProductFailure());
   }
 };
+
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
   try {
