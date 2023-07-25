@@ -71,7 +71,8 @@ export const updateUser = async (id, user, dispatch) => {
   dispatch(updateUserStart());
   try {
     // update
-    dispatch(updateUserSuccess({ id, user }));
+    const res = await userRequest.put(`/users/${id}`, user);
+    dispatch(updateUserSuccess({ res }));
   } catch (err) {
     dispatch(updateUserFailure());
   }
@@ -111,11 +112,13 @@ export const updateProduct = async (id, product, dispatch) => {
   dispatch(updateProductStart());
   try {
     // update
-    dispatch(updateProductSuccess({ id, product }));
+    const res = await userRequest.put(`/products/${id}`, product);
+    dispatch(updateProductSuccess({ res }));
   } catch (err) {
     dispatch(updateProductFailure());
   }
 };
+
 
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
@@ -153,7 +156,7 @@ export const updateDiscount = async (id, discount, dispatch) => {
   dispatch(updateDiscountStart());
   try {
     // update
-    const res = await userRequest.put(`/discounts/${id}`);
+    const res = await userRequest.put(`/discounts/${id}` , discount);
     dispatch(updateDiscountSuccess({ res }));
   } catch (err) {
     dispatch(updateDiscountFailure());

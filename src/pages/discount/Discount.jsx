@@ -1,15 +1,31 @@
 import "./discount.css"
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
+import { updateDiscount } from "../../redux/apiCalls";
+import { useState } from "react";
 
 export default function Discount(){
+    const [discounts, setInputs] = useState({});
+
     const location = useLocation();
     const discountId = location.pathname.split("/")[2];
+    const dispatch = useDispatch();
     
     const discount = useSelector((state) =>
         state.discount.discounts.find((discount) => discount._id === discountId)
     );
+
+    const handleChange = (e) => {
+        setInputs((prev) => {
+          return { ...prev, [e.target.name]: e.target.value };
+        });
+    };
     
+    const handleClick = (e) => {
+        e.preventDefault();
+        updateDiscount(discountId, discounts, dispatch); 
+    };
+
     return(
         <div className="discount">
             <div className="discountTitleContainer">
@@ -41,14 +57,14 @@ export default function Discount(){
                 <form className="discountForm">
                     <div className="discountFormLeft">
                         <label>Discount Code</label>
-                        <input type="text" placeholder={discount.code} />
+                        <input name="code" type="text" placeholder={discount.code} onChange={handleChange}/>
                         <label>Discount Value</label>
-                        <input type="text" placeholder={discount.value} />
+                        <input name="value" type="text" placeholder={discount.value} onChange={handleChange}/>
                         <label>Discount Condition</label>
-                        <input type="text" placeholder={discount.condition} />
+                        <input name="condition" type="text" placeholder={discount.condition} onChange={handleChange}/>
                     </div>
                     <div className="discountFormRight">
-                        <button className="discountButton">Update</button>
+                        <button onClick={handleClick} className="discountButton">Update</button>
                     </div>
                     </form>
                 </div>
