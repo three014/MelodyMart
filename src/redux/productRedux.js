@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//Product Redux slice contains action creators and a reducer to handle fetching products and updating the state accordingly
+
 export const productSlice = createSlice({
   name: "product",
   initialState: {
-    products: [],
+    products: [], //initial state contains empty product array
     isFetching: false,
     error: false,
   },
   reducers: {
-    //GET ALL
+    //GET ALL PRODUCTS
     getProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -21,7 +23,7 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //DELETE
+    //DELETE PRODUCT
     deleteProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -37,7 +39,7 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //UPDATE
+    //UPDATE PRODUCT
     updateProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -52,7 +54,7 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //UPDATE
+    //ADD PRODUCT
     addProductStart: (state) => {
       state.isFetching = true;
       state.error = false;

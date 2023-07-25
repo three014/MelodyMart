@@ -4,23 +4,30 @@ import { useSelector, useDispatch} from "react-redux";
 import { updateDiscount } from "../../redux/apiCalls";
 import { useState } from "react";
 
+//Users can view and modify information of a specific discount
+
 export default function Discount(){
+    //useState hook will hold updated discount information
     const [discounts, setInputs] = useState({});
 
-    const location = useLocation();
+    //Gets current location and extracts discount ID from URL path
+    const location = useLocation(); 
     const discountId = location.pathname.split("/")[2];
-    const dispatch = useDispatch();
     
+    //Accesses Redux store and retrieves the specific discount object from the state based on extracted discount ID
     const discount = useSelector((state) =>
         state.discount.discounts.find((discount) => discount._id === discountId)
     );
 
+    //Updates discounts state object to account for changes in form input fields 
     const handleChange = (e) => {
         setInputs((prev) => {
           return { ...prev, [e.target.name]: e.target.value };
         });
     };
-    
+
+    //Dispatches action to update the discount
+    const dispatch = useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
         updateDiscount(discountId, discounts, dispatch); 

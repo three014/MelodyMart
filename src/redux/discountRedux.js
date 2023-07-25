@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//Redux slice for discount contains action creators and reducer to handle different stages of discount-related API requests and state updates
+
 export const discountSlice = createSlice({
   name: "discount",
   initialState: {
-    discounts: [],
+    discounts: [], //initial state contins empty array
     isFetching: false,
     error: false,
   },
   reducers: {
-    //GET ALL
+    //GET ALL DISCOUNTS
     getDiscountStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -21,7 +23,7 @@ export const discountSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //DELETE
+    //DELETE DISCOUNT
     deleteDiscountStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -37,7 +39,7 @@ export const discountSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //UPDATE
+    //UPDATE DISCOUNT
     updateDiscountStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -52,7 +54,7 @@ export const discountSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //ADD
+    //ADD DISCOUNT
     addDiscountStart: (state) => {
       state.isFetching = true;
       state.error = false;

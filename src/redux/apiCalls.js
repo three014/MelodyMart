@@ -47,6 +47,11 @@ import {
 
 import{ getOrderStart, getOrderSuccess, getOrderFailure, } from "./orderRedux";
 
+//Sets of API call functions using asynchronous Javascript to make requests to the server
+//Uses Redux to dispatch actions for different stages of API calls like start, success, and failure
+
+
+//Performs a login request to the server and dispatches login-related actions based on response
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
@@ -57,6 +62,8 @@ export const login = async (dispatch, user) => {
   }
 };
 
+//----------API Calls for users---------------
+//All of these functions are used to interact with the backend API as they update the app's state using Redux actions based on the API responses
 export const getUsers = async (dispatch) => {
   dispatch(getUserStart());
   try {
@@ -88,6 +95,8 @@ export const deleteUser = async (id, dispatch) => {
   }
 };
 
+//----------API Calls for products---------------
+
 export const getProducts = async (dispatch) => {
   dispatch(getProductStart());
   try {
@@ -118,7 +127,6 @@ export const updateProduct = async (id, product, dispatch) => {
     dispatch(updateProductFailure());
   }
 };
-
 
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
@@ -172,7 +180,6 @@ export const addDiscount = async (discount, dispatch) => {
     dispatch(addDiscountFailure());
   }
 };
-
 
 //-----API Calls for Orders-----
 

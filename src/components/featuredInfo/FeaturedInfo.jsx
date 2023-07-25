@@ -3,6 +3,8 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 
+//Provides a visual overview of revenue, sales, and cost data with % changes compared to previous month
+
 export default function FeaturedInfo() {
   const [income, setIncome] = useState([]);
   const [perc, setPerc] = useState(0);

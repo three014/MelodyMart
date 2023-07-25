@@ -3,24 +3,12 @@ import userReducer from "./userRedux";
 import productReducer from "./productRedux";
 import discountReducer from "./discountRedux";
 import orderReducer from "./orderRedux";
-
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const persistConfig = {
-  key: "root",
-  version: 1,
-  storage,
-};
+//Sets up Redux store with data persistence enabled
+
+const persistConfig = { key: "root", version: 1, storage };
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -31,6 +19,7 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+//Configures middleware to handle serialization issues
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

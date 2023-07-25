@@ -1,13 +1,8 @@
 import "./sidebar.css";
-import {
-  LineStyle,
-  PermIdentity,
-  Storefront,
-  AttachMoney,
-  Add,
-  LocalOffer
-} from "@material-ui/icons";
+import { LineStyle, PermIdentity, Storefront, AttachMoney, Add, LocalOffer } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+
+//Renders a sidebar menu with navigation links to carry out admin related tasks
 
 export default function Sidebar() {
   return (

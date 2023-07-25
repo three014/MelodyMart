@@ -15,8 +15,9 @@ import NewDiscount from "./pages/newDiscount/NewDiscount";
 import Discount from "./pages/discount/Discount";
 import OrderList from "./pages/orderList/OrderList";
 
-function App() {
+//Sets up main application component, using React-Router to handle client-side routing
 
+function App() {
   return (
     <Router>
       <>
@@ -24,9 +25,7 @@ function App() {
         <div className="container">
           <Sidebar />
           <Routes>
-            <Route
-              path="/login" element={<Login />}
-            />
+            <Route path="/login" element={<Login />}/>
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/users" element={<UserList />}></Route>
             <Route path="/user/:userId" element={<User />}></Route>

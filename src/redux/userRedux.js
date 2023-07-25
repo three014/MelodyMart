@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//userSlice contains actions for handling user login/logout, fetching, updating, and deleting users
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    users: [],
+    users: [], //initial state contains empty user array
     isFetching: false,
     error: false,
   },
@@ -22,6 +24,7 @@ const userSlice = createSlice({
     logout: (state) => {
       state.currentUser = null;
     },
+    //GET USER
     getUserStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -34,7 +37,7 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //UPDATE
+    //UPDATE USER
     updateUserStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -49,7 +52,7 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //DELETE
+    //DELETE USER
     deleteUserStart: (state) => {
       state.isFetching = true;
       state.error = false;

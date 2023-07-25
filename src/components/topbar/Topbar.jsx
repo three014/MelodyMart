@@ -2,6 +2,8 @@ import React from "react";
 import "./topbar.css";
 import { Settings } from "@material-ui/icons";
 
+//Renders the top navigation bar of the admin console
+
 export default function Topbar() {
   return (
     <div className="topbar">

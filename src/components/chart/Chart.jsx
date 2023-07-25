@@ -1,15 +1,9 @@
 import "./chart.css";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+
+//Renders a line chart to display user analytics (active users)
 
 export default function Chart({ title, data, dataKey, grid }) {
-
   return (
     <div className="chart">
       <h3 className="chartTitle">{title}</h3>
