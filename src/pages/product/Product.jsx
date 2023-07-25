@@ -1,15 +1,32 @@
 import { useLocation } from "react-router-dom";
 import "./product.css";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch} from "react-redux";
+import { updateProduct } from "../../redux/apiCalls";
+import { useState } from "react";
 
 export default function Product() {
+  const [products, setInputs] = useState({});
+  const dispatch = useDispatch();
+
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
 
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
+
+  const handleChange = (e) => {
+      setInputs((prev) => {
+        return { ...prev, [e.target.name]: e.target.value };
+      });
+  };
+
+  const handleClick = (e) => {
+      e.preventDefault();
+      updateProduct(productId, products, dispatch); 
+  };
+
+
 
   return (
     <div className="product">
@@ -46,21 +63,21 @@ export default function Product() {
         <form className="productForm">
           <div className="productFormLeft">
             <label>Product Name</label>
-            <input type="text" placeholder={product.title} />
+            <input name="title" type="text" placeholder={product.title} onChange={handleChange}/>
             <label>Product Description</label>
-            <input type="text" placeholder={product.desc} />
+            <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
             <label>Product Image URL</label>
-            <input type="text" placeholder={product.img} />
+            <input name="img" type="text" placeholder={product.img} onChange={handleChange}/>
             <label>Price</label>
-            <input type="text" placeholder={product.price} />
+            <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
             <label>In Stock</label>
             <select name="inStock" id="idStock">
               <option value="true">Yes</option>
               <option value="false">No</option>
-            </select>
+            </select> 
           </div>
           <div className="productFormRight">
-            <button className="productButton">Update Product Details</button>
+            <button onClick={handleClick} className="productButton">Update Product Details</button>
           </div>
         </form>
       </div>
