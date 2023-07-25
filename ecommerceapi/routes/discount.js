@@ -1,7 +1,9 @@
 const Discount = require("../models/Discount");
 const router = require("express").Router();
 
-//CREATE
+//Implementing various routes using Express router to perform CRUD operations on the discount model in the MongoDB database
+
+//CREATE DISCOUNT
 router.post("/", async (req, res) => {
   const newDiscount = new Discount(req.body);
 
@@ -13,7 +15,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//UPDATE
+//UPDATE DISCOUNT
 router.put("/:id", async (req, res) => {
   try {
     const updatedDiscount = await Discount.findByIdAndUpdate(
@@ -29,7 +31,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//DELETE
+//DELETE DISCOUNT
 router.delete("/:id", async (req, res) => {
   try {
     await Discount.findByIdAndDelete(req.params.id);
@@ -39,7 +41,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//GET PRODUCT
+//GET DISCOUNT
 router.get("/find/:id", async (req, res) => {
   try {
     const discount = await Discount.findById(req.params.id);

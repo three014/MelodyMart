@@ -9,6 +9,7 @@ import { useLocation } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+//Displays list of products from a specific category, users can filter/sort products using provided options
 
 const Container = styled.div``;
 

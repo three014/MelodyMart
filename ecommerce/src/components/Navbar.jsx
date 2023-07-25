@@ -6,11 +6,12 @@ import {mobile} from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+//Defines a React component called "Navbar" and displays a navigation bar at the top of the website
+
 const Container = styled.div`
     height: 60px;
     ${mobile({ height: "50px" })}
 `;
-
 
 const Wrapper = styled.div`
     padding: 10px 20px;

@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { sliderItems } from "../data";
 import {mobile} from "../responsive";
 
+//Defines a React component called "Slider" that implements a simple image carousel
+
 const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -79,6 +81,7 @@ const Button = styled.button`
     cursor: pointer;
 `;
 
+//Updates slideIndex state when left/right arrows are clicked
 const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {

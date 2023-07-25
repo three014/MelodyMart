@@ -1,7 +1,9 @@
 const User = require("../models/User");
 const router = require("express").Router();
 
-//UPDATE
+//Implementing various routes using Express router to perform CRUD operations on the user model in the MongoDB database
+
+//UPDATE USER
 router.put("/:id", async (req, res) => {
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(
@@ -24,7 +26,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//DELETE
+//DELETE USER
 router.delete("/:id", async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
@@ -45,7 +47,7 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
-//GET ALL USER
+//GET ALL USERS
 router.get("/", async (req, res) => {
   const query = req.query.new;
   try {
@@ -59,7 +61,6 @@ router.get("/", async (req, res) => {
 });
 
 //GET USER STATS
-
 router.get("/stats", async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));

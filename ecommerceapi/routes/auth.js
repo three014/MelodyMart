@@ -3,7 +3,10 @@ const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
-//REGISTER
+//Implements two routes using Express router for user authentication: user registration and user login
+//Utilizes Mongoose to interact with the MongoDB database to perform the required operations
+
+//REGISTER a new user
 router.post("/register", async (req,res) => {
     const newUser = new User({
         username: req.body.username,

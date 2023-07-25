@@ -1,14 +1,9 @@
 const Cart = require("../models/Cart");
-const {
-  verifyToken,
-  verifyTokenAndAuthorization,
-  verifyTokenAndAdmin,
-} = require("./verifyToken");
-
 const router = require("express").Router();
 
-//CREATE
+//Implementing various routes using Express router to perform CRUD operations on the Cart model in the MongoDB database
 
+//CREATE
 router.post("/", async (req, res) => {
   const newCart = new Cart(req.body);
 

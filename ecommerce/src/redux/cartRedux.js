@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//Defines a Redux slice for managing the cart state
+//Contains the initial state of the cart and a single reducer function to handle adding products to the cart
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {

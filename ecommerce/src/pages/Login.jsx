@@ -4,6 +4,8 @@ import { login } from "../redux/apiCalls";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+//Allows users to sign in by providing their username and password
+
 const Container = styled.div`
     width: 100vw;
     height: 100vh;

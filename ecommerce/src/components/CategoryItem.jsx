@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {mobile} from "../responsive";
 import { Link } from "react-router-dom";
 
+//Defines a React component called "CategoryItem" and represents an individual category item
+
 const Container = styled.div`
     flex: 1;
     margin: 3px;

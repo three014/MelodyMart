@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Defines the order schema
 const OrderSchema = new mongoose.Schema(
     {
         userID: { type: String, required:true },

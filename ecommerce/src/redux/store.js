@@ -11,8 +11,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-//import storage from "redux-persist/es/storage";
 import storage from "redux-persist/lib/storage";
+
+//Sets up the Redux store with the persisted state using 'redux-persist'
 
 const persistConfig = {
   key: "root",
@@ -21,9 +22,10 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
-
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+//Redux store will persist its state using 'localstorage' in the browser
+//Rehydrates the store, allowing the persisted state to be loaded when the app starts, helping maintain state across pages refreshes and browser sessions
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

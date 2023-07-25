@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//Defines a Redux slice for managing user-related state, contains actions and a reducer to handle login-related functionality
+
 const userSlice = createSlice({
   name: "user",
   initialState: {

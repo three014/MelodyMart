@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Defines the cart schema
 const CartSchema = new mongoose.Schema(
     {
         userID: { type: String, required:true },

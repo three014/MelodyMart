@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+//Exports three middleware functions to handle token verification and user authorization for protected routes in a Node.js application 
+
 const verifyToken = (req,res,next) => {
     const authHeader = req.headers.token;
     if (authHeader) {

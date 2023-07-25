@@ -1,3 +1,4 @@
+//Hardcodes slider item images and values on the homepage
 export const sliderItems = [
   {
       id: 1,
@@ -22,6 +23,7 @@ export const sliderItems = [
   },
 ];
 
+//Hardcodes the categories (and their associated images + values) for each instrument on the homepage
 export const categories = [
   {
     id: 1,

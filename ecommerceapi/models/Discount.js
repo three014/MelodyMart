@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Defines the discount schema
 const DiscountSchema = new mongoose.Schema(
     {
         code: { type: String, required:true, unique:true },

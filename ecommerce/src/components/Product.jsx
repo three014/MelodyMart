@@ -2,6 +2,7 @@ import { SearchOutlined } from '@mui/icons-material';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+//Defines a React component called "Product" and will render a product image, along with the data for that product
 
 const Info = styled.div`
     opacity: 0;

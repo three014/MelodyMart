@@ -7,6 +7,8 @@ import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
+//Renders various components to create the main layout of the homepage
+
 const Home = () => {
     return (
         <div>

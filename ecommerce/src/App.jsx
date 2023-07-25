@@ -4,14 +4,10 @@ import Login from "./pages/Login";
 import Product from "./pages/Product";
 import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-//import Success from "./pages/Success";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+//React component that sets up the routing for the frontend application using the React router library
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);

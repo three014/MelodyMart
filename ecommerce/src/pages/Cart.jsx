@@ -6,6 +6,8 @@ import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+//Displays items in the cart, their details, and an order summary
+
 const Container = styled.div``;
 
 const Wrapper = styled.div`

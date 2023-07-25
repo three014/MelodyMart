@@ -1,8 +1,9 @@
 const Order = require("../models/Order");
 const router = require("express").Router();
 
-//CREATE
+//Implementing various routes using Express router to perform CRUD operations on the order model in the MongoDB database
 
+//CREATE ORDER
 router.post("/", async (req, res) => {
   const newOrder = new Order(req.body);
 
@@ -14,7 +15,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//UPDATE
+//UPDATE ORDER
 router.put("/:id", async (req, res) => {
   try {
     const updatedOrder = await Order.findByIdAndUpdate(
@@ -30,7 +31,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//DELETE
+//DELETE ORDER
 router.delete("/:id", async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);
@@ -40,7 +41,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//GET USER ORDERS
+//GET USER ORDER
 router.get("/find/:userId", async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.params.userId });
@@ -50,8 +51,7 @@ router.get("/find/:userId", async (req, res) => {
   }
 });
 
-// //GET ALL
-
+// GET ALL USER ORDERS
 router.get("/", async (req, res) => {
   try {
     const orders = await Order.find();

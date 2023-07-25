@@ -3,6 +3,8 @@ import { categories } from "../data";
 import CategoryItem from "./CategoryItem";
 import {mobile} from "../responsive";
 
+//Defines a React component called "Categories" and displays a list of categories
+
 const Container = styled.div`
     display: flex;
     padding: 20px;

@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+//Defines a React component called "Announcement" and renders an announcement section on the homepage
+
 const Container = styled.div`
     height: 30px;
     background-color: teal;

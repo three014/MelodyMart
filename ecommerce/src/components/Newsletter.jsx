@@ -2,6 +2,8 @@ import { Send } from "@mui/icons-material";
 import styled from "styled-components";
 import {mobile} from "../responsive";
 
+//Defines a React component called "Newsletter" and displays a newsletter subscription section
+
 const Container = styled.div`
     height: 60vh;
     background-color: #fcf5f5;

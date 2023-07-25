@@ -3,6 +3,9 @@ import Product from "./Product";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+//Defines a React component called "Products" that displays a list of products based on various filters and sorting options
+//Fetches data from an API using Axios and displays products
+
 const Container = styled.div`
     padding: 20px;
     display: flex;
@@ -11,9 +14,13 @@ const Container = styled.div`
 `;
 
 const Products = ({ category,filters,sort }) => {
+    //"products" holds the full list of products fetched from the API
     const [products,setProducts] = useState([]);
+
+    //"filteredProducts" holds the list of products after filters/sorting option is applied
     const [filteredProducts, setFilteredProducts] = useState([]);
 
+    //When the category prop changes, fetches products from the API
     useEffect(() => {
         const getProducts = async () => {
             try {
@@ -28,6 +35,7 @@ const Products = ({ category,filters,sort }) => {
         getProducts()
     },[category]);
 
+    //Applies filters to products
     useEffect(() => {
         category && setFilteredProducts(
             products.filter(item =>
@@ -38,6 +46,7 @@ const Products = ({ category,filters,sort }) => {
         );
     },[products,category, filters]);
 
+    //Applies sorting to products
     useEffect(() => {
         if (sort === "newest") {
           setFilteredProducts((prev) =>
@@ -54,6 +63,9 @@ const Products = ({ category,filters,sort }) => {
         }
       }, [sort]);
 
+    
+    //If a category is provided, displays filteredProducts array
+    //If no category is provided, displays first 20 producst from the products array using the slice method
     return (
         <Container>
             {category

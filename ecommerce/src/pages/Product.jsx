@@ -12,9 +12,10 @@ import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Container = styled.div`
+//Displays information about a specific product (including image, title, description, and price)
+//Users can adjust the quantity of the product and add to cart
 
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
     padding: 50px;

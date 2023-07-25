@@ -1,8 +1,9 @@
 const Product = require("../models/Product");
 const router = require("express").Router();
 
-//CREATE
+//Implementing various routes using Express router to perform CRUD operations on the product model in the MongoDB database
 
+//CREATE PRODUCT
 router.post("/", async (req, res) => {
   const newProduct = new Product(req.body);
 
@@ -14,7 +15,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//UPDATE
+//UPDATE PRODUCT
 router.put("/:id", async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -30,7 +31,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//DELETE
+//DELETE PRODUCT
 router.delete("/:id", async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
@@ -40,7 +41,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//GET PRODUCT
+//GET PRODUCT 
 router.get("/find/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

@@ -2,6 +2,8 @@ import { Facebook, Instagram, MailOutline, Phone, Room, Twitter, YouTube } from 
 import styled from "styled-components";
 import {mobile} from "../responsive";
 
+//Defines a React component called "Footer" and displays a footer section on the frontend
+
 const Container = styled.div`
     display: flex;
     ${mobile({ flexDirection: "column" })}
