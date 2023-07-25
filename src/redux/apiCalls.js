@@ -80,8 +80,8 @@ export const updateUser = async (id, user, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteUserSuccess(id));
+    const res = await userRequest.delete(`/users/${id}`);
+    dispatch(deleteUserSuccess(res));
   } catch (err) {
     dispatch(deleteUserFailure());
   }
@@ -100,8 +100,8 @@ export const getProducts = async (dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
   dispatch(deleteProductStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteProductSuccess(id));
+    const res = await userRequest.delete(`/products/${id}`);
+    dispatch(deleteProductSuccess(res));
   } catch (err) {
     dispatch(deleteProductFailure());
   }
@@ -142,8 +142,8 @@ export const getDiscounts = async (dispatch) => {
 export const deleteDiscount = async (id, dispatch) => {
   dispatch(deleteDiscountStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteDiscountSuccess(id));
+    const res = await userRequest.delete(`/discounts/${id}`);
+    dispatch(deleteDiscountSuccess(res));
   } catch (err) {
     dispatch(deleteDiscountFailure());
   }
@@ -153,7 +153,8 @@ export const updateDiscount = async (id, discount, dispatch) => {
   dispatch(updateDiscountStart());
   try {
     // update
-    dispatch(updateDiscountSuccess({ id, discount }));
+    const res = await userRequest.put(`/discounts/${id}`);
+    dispatch(updateDiscountSuccess({ res }));
   } catch (err) {
     dispatch(updateDiscountFailure());
   }
