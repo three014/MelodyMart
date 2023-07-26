@@ -33,6 +33,7 @@ export default function Discount(){
         updateDiscount(discountId, discounts, dispatch); 
     };
 
+    //Displays current information about a discount
     return(
         <div className="discount">
             <div className="discountTitleContainer">
@@ -60,6 +61,8 @@ export default function Discount(){
                     </div>
                 </div>
             </div>
+
+            {/* Form for updating discount details */}
             <div className="discountBottom">
                 <form className="discountForm">
                     <div className="discountFormLeft">
@@ -76,6 +79,5 @@ export default function Discount(){
                     </form>
                 </div>
         </div>
-
     );
 };

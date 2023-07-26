@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 
+//Renders a list of users in a data grid that can be edited or deleted
+
 export default function UserList() {
   const [users, setUsers] = useState([]);
 
@@ -89,7 +91,6 @@ export default function UserList() {
     </div>
   );
 }
-
 
 function userToRow(user) {
   return {

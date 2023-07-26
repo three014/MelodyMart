@@ -6,10 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteDiscount, getDiscounts } from "../../redux/apiCalls";
 import { useEffect } from "react";
 
+//Renders a list of discounts that can be edited or deleted
+
 export default function DiscountList(){
-    const dispatch = useDispatch();
+    //useSelector hook accesses the discounts data from the Redux store
     const discounts = useSelector((state) => state.discount.discounts);
 
+    //Fetches list of discounts from server and stores in Redux state
+    const dispatch = useDispatch();
     useEffect(() => {
       getDiscounts(dispatch);
     }, [dispatch]);

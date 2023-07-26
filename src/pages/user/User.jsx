@@ -1,14 +1,10 @@
-import {
-  CalendarToday,
-  LocationSearching,
-  MailOutline,
-  PermIdentity,
-  PhoneAndroid,
-  Publish,
-} from "@material-ui/icons";
 import "./user.css";
+import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from "@material-ui/icons";
+
+//Renders a view to update user information
 
 export default function User() {
+  //Displays current information about a user
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -52,49 +48,30 @@ export default function User() {
             </div>
           </div>
         </div>
+        {/* Form for updating user details */}
         <div className="userUpdate">
           <span className="userUpdateTitle">Edit User Information</span>
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
                 <label>Username</label>
-                <input
-                  type="text"
-                  placeholder="annabeck99"
-                  className="userUpdateInput"
-                />
+                <input type="text" placeholder="annabeck99" className="userUpdateInput" />
               </div>
               <div className="userUpdateItem">
                 <label>Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Anna Becker"
-                  className="userUpdateInput"
-                />
+                <input type="text" placeholder="Anna Becker" className="userUpdateInput" />
               </div>
               <div className="userUpdateItem">
                 <label>Email</label>
-                <input
-                  type="text"
-                  placeholder="annabeck99@gmail.com"
-                  className="userUpdateInput"
-                />
+                <input type="text" placeholder="annabeck99@gmail.com" className="userUpdateInput" />
               </div>
               <div className="userUpdateItem">
                 <label>Phone</label>
-                <input
-                  type="text"
-                  placeholder="+1 123 456 67"
-                  className="userUpdateInput"
-                />
+                <input type="text" placeholder="+1 123 456 67" className="userUpdateInput" />
               </div>
               <div className="userUpdateItem">
                 <label>Address</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
-                  className="userUpdateInput"
-                />
+                <input type="text" placeholder="New York | USA" className="userUpdateInput" />
               </div>
             </div>
             <div className="userUpdateRight">

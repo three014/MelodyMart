@@ -4,30 +4,36 @@ import { useSelector, useDispatch} from "react-redux";
 import { updateProduct } from "../../redux/apiCalls";
 import { useState } from "react";
 
-export default function Product() {
-  const [products, setInputs] = useState({});
-  const dispatch = useDispatch();
+//Renders a view for updating product details
 
+export default function Product() {
+  //Keeps track of updated product information
+  const [products, setInputs] = useState({});
+
+  //Gets current product ID from URL
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
 
+  //Gets product details form the Redux store and finds product with matching ID in products array
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
 
+  //Keeps track of changes in the update product form text fields
   const handleChange = (e) => {
       setInputs((prev) => {
         return { ...prev, [e.target.name]: e.target.value };
       });
   };
 
+  //Updates product details on server and updates Redux store with new information
+  const dispatch = useDispatch();
   const handleClick = (e) => {
       e.preventDefault();
       updateProduct(productId, products, dispatch); 
   };
 
-
-
+  //Displays current information about a product
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -45,10 +51,6 @@ export default function Product() {
               <span className="productInfoValue">{product._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">sales:</span>
-              <span className="productInfoValue">5123</span>
-            </div>
-            <div className="productInfoItem">
               <span className="productInfoKey">in stock:</span>
               <span className="productInfoValue">Yes</span>
             </div>
@@ -56,9 +58,15 @@ export default function Product() {
               <span className="productInfoKey">quantity:</span>
               <span className="productInfoValue">{product.quantity}</span>
             </div>
+            <div className="productInfoItem">
+              <span className="productInfoKey">price:</span>
+              <span className="productInfoValue">${product.price}</span>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Form for updating product details */}
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
@@ -75,7 +83,7 @@ export default function Product() {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select> 
-          </div>
+          </div> 
           <div className="productFormRight">
             <button onClick={handleClick} className="productButton">Update Product Details</button>
           </div>

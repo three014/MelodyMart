@@ -4,6 +4,8 @@ import "./home.css";
 import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../requestMethods";
 
+//Represents homepage of the application, displaying user analytics using FeaturedInfo and Chart components
+
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
 

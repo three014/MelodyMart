@@ -3,10 +3,11 @@ import { useState } from "react";
 import { addDiscount } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 
+//Represents a form for creating a new discount
 
 export default function NewDiscount(){
+    //useState hook manages the state of discount input fields
     const [discounts, setInputs] = useState({});
-    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         setInputs((prev) => {
@@ -14,6 +15,7 @@ export default function NewDiscount(){
         });
     };
 
+    const dispatch = useDispatch();
     const handleClick = (e) => {
       e.preventDefault();
       addDiscount(discounts, dispatch); 
