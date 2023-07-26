@@ -57,7 +57,7 @@ export default function UserList() {
     {
       field: "transaction",
       headerName: "Transaction Volume",
-      width: 160,
+      width: 200,
     },
     {
       field: "action",
@@ -82,7 +82,7 @@ export default function UserList() {
   return (
     <div className="userList">
       <DataGrid
-        rows={users.map(userToRow)}
+        rows={users.filter(user => !user.isAdmin).map(userToRow)}
         disableSelectionOnClick
         columns={columns}
         pageSize={15}
