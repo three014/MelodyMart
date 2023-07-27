@@ -31,7 +31,7 @@ const userSlice = createSlice({
     },
     getUserSuccess: (state, action) => {
       state.isFetching = false;
-      state.products = action.payload;
+      state.users = action.payload;
     },
     getUserFailure: (state) => {
       state.isFetching = false;

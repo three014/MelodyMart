@@ -67,7 +67,7 @@ export const login = async (dispatch, user) => {
 export const getUsers = async (dispatch) => {
   dispatch(getUserStart());
   try {
-    const res = await publicRequest.get("/users");
+    const res = await publicRequest.get("users/");
     dispatch(getUserSuccess(res.data));
   } catch (err) {
     dispatch(getUserFailure());
