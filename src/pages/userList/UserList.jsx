@@ -10,8 +10,10 @@ import { deleteUser, getUsers } from "../../redux/apiCalls";
 //Renders a list of users in a data grid that can be edited or deleted
 
 export default function UserList() {
+  //Gets list of users from the Redux store
   const users = useSelector((state) => state.user.users);
 
+  //Fetches users from server and makes an API call to populate list with users
   const dispatch = useDispatch();
   useEffect(() => {
     getUsers(dispatch);
@@ -38,14 +40,9 @@ export default function UserList() {
     },
     { field: "email", headerName: "Email", width: 200 },
     {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 200,
+      field: "isAdmin",
+      headerName: "Is Admin",
+      width: 150,
     },
     {
       field: "action",
