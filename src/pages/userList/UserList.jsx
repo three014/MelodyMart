@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getUsers } from "../../redux/apiCalls";
 
-
 //Renders a list of users in a data grid that can be edited or deleted
 
 export default function UserList() {
