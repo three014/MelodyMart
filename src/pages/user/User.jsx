@@ -10,6 +10,16 @@ import { useState } from "react";
 export default function User() {
     //Keeps track of updated user information
     const [users, setUsers] = useState({});
+    const [showNotification, setShowNotification] = useState(false);
+
+    //Displays notification message for 3000 milliseconds
+    const showNotificationMessage = () => {
+      setShowNotification(true);
+  
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+    };
 
     //Gets current user ID from URL
     const location = useLocation();
@@ -32,11 +42,13 @@ export default function User() {
     const handleClick = (e) => {
         e.preventDefault();
         updateUser(userId, users, dispatch); 
+        showNotificationMessage();
     };
 
   //Displays current information about a user
   return (
     <div className="user">
+      {showNotification && <div className="notification">Updated User Information!</div>}
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
       </div>

@@ -7,6 +7,16 @@ import { useDispatch } from "react-redux";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
+  const [showNotification, setShowNotification] = useState(false);
+
+  //Displays notification message for 3000 milliseconds
+  const showNotificationMessage = () => {
+    setShowNotification(true);
+
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000); 
+  };
 
   //Stores user input for product form text fields
   const handleChange = (e) => {
@@ -20,10 +30,12 @@ export default function NewProduct() {
     e.preventDefault();
     const product = {...inputs, img: inputs.imageURL, categories: inputs.categories};
     addProduct(product, dispatch);
+    showNotificationMessage();
   };
 
   return (
     <div className="newProduct">
+      {showNotification && <div className="notification">Created New Product!</div>}
       <h1 className="addProductTitle">Create New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
@@ -53,7 +65,7 @@ export default function NewProduct() {
             <option value="false">No</option>
           </select>
         </div>
-        <button onClick={handleClick} className="addProductButton"> Create </button>
+        <button onClick={handleClick} className="addProductButton"> Create New Product </button>
       </form>
     </div>
   );

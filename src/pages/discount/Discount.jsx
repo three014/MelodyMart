@@ -9,7 +9,17 @@ import { useState } from "react";
 export default function Discount(){
     //useState hook will hold updated discount information
     const [discounts, setInputs] = useState({});
+    const [showNotification, setShowNotification] = useState(false);
 
+    //Displays notification message for 3000 milliseconds
+    const showNotificationMessage = () => {
+      setShowNotification(true);
+  
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 3000); 
+    };
+    
     //Gets current location and extracts discount ID from URL path
     const location = useLocation(); 
     const discountId = location.pathname.split("/")[2];
@@ -30,12 +40,14 @@ export default function Discount(){
     const dispatch = useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
-        updateDiscount(discountId, discounts, dispatch); 
+        updateDiscount(discountId, discounts, dispatch);
+        showNotificationMessage(); 
     };
 
     //Displays current information about a discount
     return(
         <div className="discount">
+            {showNotification && <div className="notification">Updated Discount Information!</div>}
             <div className="discountTitleContainer">
                 <h1 className="discountTitle">Discount</h1>
             </div>

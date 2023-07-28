@@ -9,7 +9,17 @@ import { useState } from "react";
 export default function Product() {
   //Keeps track of updated product information
   const [products, setInputs] = useState({});
+  const [showNotification, setShowNotification] = useState(false);
 
+  //Displays notification message for 3000 milliseconds
+  const showNotificationMessage = () => {
+    setShowNotification(true);
+
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000); 
+  };
+  
   //Gets current product ID from URL
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
@@ -31,11 +41,13 @@ export default function Product() {
   const handleClick = (e) => {
       e.preventDefault();
       updateProduct(productId, products, dispatch); 
+      showNotificationMessage();
   };
 
   //Displays current information about a product
   return (
     <div className="product">
+      {showNotification && <div className="notification">Updated Product Information!</div>}
       <div className="productTitleContainer">
         <h1 className="productTitle">Product</h1>
       </div>
