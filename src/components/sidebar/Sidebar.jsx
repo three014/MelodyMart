@@ -49,7 +49,7 @@ export default function Sidebar() {
             <Link to="/newProduct" className="link">
               <li className="sidebarListItem">
                 <Add className="sidebarIcon" />
-                Add New Product
+                New Product
               </li>
             </Link>
             <Link to="/newDiscount" className="link">
