@@ -50,7 +50,7 @@ export default function User() {
     <div className="user">
       {showNotification && <div className="notification">Updated User Information!</div>}
       <div className="userTitleContainer">
-        <h1 className="userTitle">Edit User</h1>
+        <h1 className="userTitle">Edit User Details</h1>
       </div>
       <div className="userContainer">
         <div className="userShow">

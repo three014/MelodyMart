@@ -55,8 +55,14 @@ export default function NewProduct() {
           <input name="price" type="number" placeholder="Product Price" onChange={handleChange} />
         </div>
         <div className="addProductItem">
-          <label>Categories</label>
-          <input type="text" placeholder="strings, brass" onChange={handleChange} name="categories" />
+          <label>Category</label>
+            <select name="categories" onChange={handleChange}>
+              <option value="Strings">Strings</option>
+              <option value="Percussion">Percussion</option>
+              <option value="Brass">Brass</option>
+              <option value="Woodwinds">Woodwinds</option>
+              <option value="Electronics">Electronics</option>
+            </select>
         </div>
         <div className="addProductItem">
           <label>In Stock</label>

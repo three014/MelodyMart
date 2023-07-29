@@ -71,6 +71,12 @@ const MenuItem = styled.div`
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
+const LogoLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+`;
+
 const Navbar = () => {
     const quantity = useSelector(state=>state.cart.quantity);
     return (
@@ -83,7 +89,9 @@ const Navbar = () => {
                         <Search style={{ color:"gray", fontSize:16 }}/>
                     </SearchContainer>
                 </Left>
-                <Center><Logo>Melody Mart</Logo></Center>
+                <LogoLink to="/">
+                    <Center><Logo>Melody Mart</Logo></Center>
+                </LogoLink>
                 <Right>
                     <MenuItem>REGISTER</MenuItem>
                     <MenuItem>SIGN IN</MenuItem>

@@ -38,11 +38,6 @@ export default function NewDiscount(){
             <h1 className="addDiscountTitle">Create New Discount</h1>
             <form className="addDiscountForm">
                 <div className="addDiscountItem">
-                    <label> Discount Title </label>
-                    <input name="title" type="text" placeholder="Discount Name" onChange={handleChange} />
-                </div>
-
-                <div className="addDiscountItem">
                     <label>Discount Code</label>
                     <input name="code" type="text" placeholder="Discount Code" onChange={handleChange} />
                 </div>

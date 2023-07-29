@@ -49,7 +49,7 @@ export default function Product() {
     <div className="product">
       {showNotification && <div className="notification">Updated Product Information!</div>}
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">Edit Product Details</h1>
       </div>
       <div className="productTop">
         <div className="productTopRight">
@@ -74,6 +74,10 @@ export default function Product() {
               <span className="productInfoKey">price:</span>
               <span className="productInfoValue">${product.price}</span>
             </div>
+            <div className="productInfoItem">
+              <span className="productInfoKey">category:</span>
+              <span className="productInfoValue">{product.categories}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -90,6 +94,16 @@ export default function Product() {
             <input name="img" type="text" placeholder={product.img} onChange={handleChange}/>
             <label>Price</label>
             <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
+            <label>Quantity</label>
+            <input name="price" type="text" placeholder={product.quantity} onChange={handleChange}/>
+            <label>Category</label>
+              <select name="categories" id="categories">
+                <option value="Strings">Strings</option>
+                <option value="Percussion">Percussion</option>
+                <option value="Brass">Brass</option>
+                <option value="Woodwinds">Woodwinds</option>
+                <option value="Electronics">Electronics</option>
+              </select>
             <label>In Stock</label>
             <select name="inStock" id="idStock">
               <option value="true">Yes</option>

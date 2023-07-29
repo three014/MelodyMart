@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 20px;
 }
 
 .discountTop {
@@ -45,6 +46,8 @@
   
 .discountInfoValue {
     font-weight: 300;
+    padding-left: 10px;
+
 }
   
 .discountBottom {

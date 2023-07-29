@@ -13,6 +13,13 @@ const Container = styled.div`
     justify-content: space-between;
 `;
 
+const Title = styled.h1`
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+`;
+
 const Products = ({ category,filters,sort }) => {
     //"products" holds the full list of products fetched from the API
     const [products,setProducts] = useState([]);
@@ -67,6 +74,8 @@ const Products = ({ category,filters,sort }) => {
     //If a category is provided, displays filteredProducts array
     //If no category is provided, displays first 20 producst from the products array using the slice method
     return (
+      <div>
+        <Title>EXPLORE</Title>
         <Container>
             {category
                 ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
@@ -74,6 +83,7 @@ const Products = ({ category,filters,sort }) => {
                     .slice(0, 20)
                     .map((item) => <Product item={item} key={item.id} />)}
         </Container>
+        </div>
     );
 };
 

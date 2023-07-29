@@ -49,7 +49,7 @@ export default function Discount(){
         <div className="discount">
             {showNotification && <div className="notification">Updated Discount Information!</div>}
             <div className="discountTitleContainer">
-                <h1 className="discountTitle">Discount</h1>
+                <h1 className="discountTitle">Edit Discount Details</h1>
             </div>
             <div className="discountTop">
                 <div className="discountTopRight">
@@ -86,7 +86,7 @@ export default function Discount(){
                         <input name="condition" type="text" placeholder={discount.condition} onChange={handleChange}/>
                     </div>
                     <div className="discountFormRight">
-                        <button onClick={handleClick} className="discountButton">Update</button>
+                        <button onClick={handleClick} className="discountButton">Update Discount Code</button>
                     </div>
                     </form>
                 </div>
