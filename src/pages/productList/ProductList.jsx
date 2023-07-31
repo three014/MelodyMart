@@ -2,7 +2,7 @@ import "./productList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
 
@@ -11,6 +11,16 @@ import { deleteProduct, getProducts } from "../../redux/apiCalls";
 export default function ProductList() {
   //Gets list of products from the Redux store
   const products = useSelector((state) => state.product.products);
+  const [showNotification, setShowNotification] = useState(false);
+
+  //Displays notification message for 3000 milliseconds
+  const showNotificationMessage = () => {
+    setShowNotification(true);
+
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000); 
+  };
 
   //Fetches products from server and makes an API call to populate list with products
   const dispatch = useDispatch();
@@ -20,6 +30,7 @@ export default function ProductList() {
   
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);
+    showNotificationMessage();
   };
  
   const columns = [
@@ -55,13 +66,12 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+      {showNotification && <div className="deleteNotification">Deleted Product!</div>}
       <DataGrid
         rows={products}
-        disableSelectionOnClick
         columns={columns}
         getRowId={(row)=>row._id}
         pageSize={20}
-        checkboxSelection
       />
     </div>
   );

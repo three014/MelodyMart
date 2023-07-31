@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrders } from "../../redux/apiCalls";
 import { useEffect } from "react";
 
-
 //Renders a list of orders in a data grid
 
 export default function OrderList(){
@@ -59,11 +58,9 @@ export default function OrderList(){
         <div className="orderList">
             <DataGrid
                 rows={orders}
-                disableSelectionOnClick
                 columns={columns}
                 getRowId={(row)=>row._id}
                 pageSize={15}
-                checkboxSelection
             />
         </div>
     );

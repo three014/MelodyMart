@@ -29,3 +29,20 @@
     color: red;
     cursor: pointer;
 }
+
+.deleteNotification {
+    position: fixed;
+    opacity: 0.7;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 9999;
+}

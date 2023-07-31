@@ -8,15 +8,18 @@ import { useDispatch } from "react-redux";
 export default function NewDiscount(){
     //useState hook manages the state of discount input fields
     const [discounts, setInputs] = useState({});
+    const [notificationMessage, setNotificationMessage] = useState("");
     const [showNotification, setShowNotification] = useState(false);
 
-    //Displays notification message for 3000 milliseconds
-    const showNotificationMessage = () => {
+    //Displays notification message for 5000 milliseconds
+    const showNotificationMessage = (message) => {
+      setNotificationMessage(message);
       setShowNotification(true);
   
       setTimeout(() => {
         setShowNotification(false);
-      }, 3000); 
+        setNotificationMessage("");
+      }, 5000); 
     };
 
     const handleChange = (e) => {
@@ -27,14 +30,21 @@ export default function NewDiscount(){
 
     const dispatch = useDispatch();
     const handleClick = (e) => {
-      e.preventDefault();
+      e.preventDefault(); 
+      
+      //If any of the fields are missing
+      if( !discounts.code || !discounts.value || !discounts.condition ){
+        showNotificationMessage("Missing field(s)!", "error");
+        return;
+      }
+
       addDiscount(discounts, dispatch);
-      showNotificationMessage(); 
+      showNotificationMessage("Created New Discount Code!", "success");
     };
 
     return(
         <div className="newDiscount">
-            {showNotification && <div className="notification">Created New Discount Code!</div>}
+          {showNotification && ( <div id="notification" className="notification"> {notificationMessage} </div> )}
             <h1 className="addDiscountTitle">Create New Discount</h1>
             <form className="addDiscountForm">
                 <div className="addDiscountItem">
