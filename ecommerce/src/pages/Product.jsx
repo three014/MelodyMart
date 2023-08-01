@@ -35,7 +35,7 @@ const BlackContainer = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     object-fit: contain;
     ${mobile({ height: "40vh" })}
 `;
