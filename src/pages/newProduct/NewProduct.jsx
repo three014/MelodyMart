@@ -7,10 +7,14 @@ import { useDispatch } from "react-redux";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
+  const [notificationType, setNotificationType] = useState("");
+  const [message, setMessage] = useState("");
   const [showNotification, setShowNotification] = useState(false);
 
   //Displays notification message for 3000 milliseconds
-  const showNotificationMessage = () => {
+  const showNotificationMessage = (message, type) => {
+    setNotificationType(type);
+    setMessage(message);
     setShowNotification(true);
 
     setTimeout(() => {
@@ -30,12 +34,18 @@ export default function NewProduct() {
     e.preventDefault();
     const product = {...inputs, img: inputs.imageURL, categories: inputs.categories};
     addProduct(product, dispatch);
-    showNotificationMessage();
+    showNotificationMessage("Created New Product!", "success");
+
+    if( !product.imageURL || !product.title || !product.desc || !product.price || !product.quantity ){
+      showNotificationMessage("Missing field(s)!", "error");
+      return;
+    }
   };
 
   return (
     <div className="newProduct">
-      {showNotification && <div className="notification">Created New Product!</div>}
+      {/* Display the notification if showNotification is true */}
+      {showNotification && ( <div className={`notification ${notificationType === "error" ? "error" : "success"}`}> {message} </div> )}
       <h1 className="addProductTitle">Create New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
@@ -53,6 +63,10 @@ export default function NewProduct() {
         <div className="addProductItem">
           <label>Price</label>
           <input name="price" type="number" placeholder="Product Price" onChange={handleChange} />
+        </div>
+        <div className="addProductItem">
+          <label>Quantity</label>
+          <input name="quantity" type="text" placeholder="Product Quantity" onChange={handleChange}/>
         </div>
         <div className="addProductItem">
           <label>Category</label>

@@ -95,7 +95,7 @@ export default function Product() {
             <label>Price</label>
             <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
             <label>Quantity</label>
-            <input name="price" type="text" placeholder={product.quantity} onChange={handleChange}/>
+            <input name="quantity" type="text" placeholder={product.quantity} onChange={handleChange}/>
             <label>Category</label>
               <select name="categories" id="categories" placeholder={product.categories} onChange={handleChange}>
                 <option value="Strings">Strings</option>

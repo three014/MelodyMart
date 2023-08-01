@@ -8,17 +8,18 @@ import { useDispatch } from "react-redux";
 export default function NewDiscount(){
     //useState hook manages the state of discount input fields
     const [discounts, setInputs] = useState({});
-    const [notificationMessage, setNotificationMessage] = useState("");
+    const [notificationType, setNotificationType] = useState("");
+    const [message, setMessage] = useState("");
     const [showNotification, setShowNotification] = useState(false);
 
     //Displays notification message for 5000 milliseconds
-    const showNotificationMessage = (message) => {
-      setNotificationMessage(message);
+    const showNotificationMessage = (message, type) => {
+      setNotificationType(type);
+      setMessage(message);
       setShowNotification(true);
   
       setTimeout(() => {
         setShowNotification(false);
-        setNotificationMessage("");
       }, 5000); 
     };
 
@@ -44,7 +45,8 @@ export default function NewDiscount(){
 
     return(
         <div className="newDiscount">
-          {showNotification && ( <div id="notification" className="notification"> {notificationMessage} </div> )}
+          {/* Display the notification if showNotification is true */}
+          {showNotification && ( <div className={`notification ${notificationType === "error" ? "error" : "success"}`}> {message} </div> )}
             <h1 className="addDiscountTitle">Create New Discount</h1>
             <form className="addDiscountForm">
                 <div className="addDiscountItem">
