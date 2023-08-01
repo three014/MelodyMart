@@ -8,17 +8,13 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const discountRoute = require("./routes/discount");
 const cors = require("cors");
-const dotenv = require("dotenv");
 
 //Sets up a Node.js server using the Express framework to handle API requests and connects it to a MongoDB database using Mongoose
 
-dotenv.config();
+const MONGO_URL = "mongodb+srv://siaxvii:siaxvii1@clustergroup1.pbqzzro.mongodb.net/";
 
 //Configures MongoDB connection
-mongoose
-    .connect(process.env.MONGO_URL, {
-        dbName: "test",
-    })
+mongoose.connect(MONGO_URL, { dbName: "test" })
     .then(() => console.log("DB Connection Successful!"))
     .catch((err) => {
         console.log(err);
