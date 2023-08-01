@@ -10,7 +10,7 @@ To get started with MelodyMart, follow these steps:
 - Start the development server: npm start
 - Visit http://localhost:3000 in your web browser to access MelodyMart.
 
-Notes: You have to run ecommerceapi and src folders separately in order to view the admin panel. ecommerceapi connects to the database. To run ecommerceapi, you need to create a .env file with the Mongo URL and set it to <mongodb+srv://<username>:<password>@clustergroup1.pbqzzro.mongodb.net/> for admin privileges. Install nodemon in the terminal after changing the directory to ecommerceapi. Run the following command to do so:
+Notes: You have to run the ecommerceapi and src folders separately in order to view the admin panel. ecommerceapi connects to the database. To run ecommerceapi, you need to create a .env file with the Mongo URL and set it to <mongodb+srv://siaxvii:siaxvii1@clustergroup1.pbqzzro.mongodb.net/> for admin privileges. Install nodemon in the terminal after changing the directory to ecommerceapi. Run the following command to do so:
   ### `npm i nodemon -f`
   ### `npm i dotenv -f`
 
