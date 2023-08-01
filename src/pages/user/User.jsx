@@ -77,7 +77,7 @@ export default function User() {
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">UserID: {user._id}</span>
+              <span className="userShowInfoTitle">User ID: {user._id}</span>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function User() {
                 <input name="email" type="text" placeholder={user.email} className="userUpdateInput" onChange={handleChange} />
               </div>
               <div className="userUpdateItem">
-              <label>Product Image URL</label>
+              <label>User Image URL</label>
                 <input name="img" type="text" placeholder={user.img} onChange={handleChange}/>
                 </div>
             </div>
