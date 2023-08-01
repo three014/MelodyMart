@@ -1,88 +1,32 @@
-# Admin page for Music Store Backend
-# Notes
+# MelodyMart
 
-Package.json name change broke the website so if you are using an old node-modules like I have and just transferring between the different iterations, you need to delete the nodules folder and reinstall npm --force.
+MelodyMart is an e-commerce music store platform that provides a wide range of musical instruments. Whether you're a professional musician or a music enthusiast, MelodyMart offers a seamless shopping experience for all your musical needs.
 
-old notes below, ignore
+<h2>Getting Started</h2>
 
-Lastest commit notes from old admin branch before I broke it in half:
-"Updated product list page, now shows all 15 products and quantity, thank you Lasya and Brandon. There was another change I think I did, I can't remember. Oh well, easy come easy go."
+To get started with MelodyMart, follow these steps:
+- Clone the repository and checkout to the main branch: git clone https://github.com/your-username/MelodyMart.git
+- Install dependencies: npm i react-scripts -f
+- Start the development server: npm start
+- Visit http://localhost:3000 in your web browser to access MelodyMart.
 
-To fix: User.jsx filled with dummy data, needs to pull from db
+Notes: You have to run ecommerceapi and src folders separately in order to view the admin panel. ecommerceapi connects to the database. To run ecommerceapi, you need to create a .env file with the Mongo URL and set it to <mongodb+srv://<username>:<password>@clustergroup1.pbqzzro.mongodb.net/> for admin privileges. Install nodemon in the terminal after changing the directory to ecommerceapi. Run the following command to do so:
+  ### `npm i nodemon -f`
+  ### `npm i dotenv -f`
 
-Issues with parse admin is true or false in App.js
+Technologies Used
+- React: Front-end development
+- Node.js: Server-side development
+- MongoDB: Database management
+- Express.js: Web application framework
 
-Also in App.js, homepage and toolbar should not display unless admin token is true
-
-Small widget is broken, doesn't display users from DB
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align = "center">
+<img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img alt="Node.js" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
+<img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img alt="Express.js" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" />
+<img alt="Material-UI" src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" />
+<img alt="Redux" src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" />
+<img alt="Rust" src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
+<img alt="JavaScript" src= "https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+</p>
