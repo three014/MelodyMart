@@ -9,23 +9,7 @@ import { userRequest } from "../../requestMethods";
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
 
-  const MONTHS = useMemo(
-    () => [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
-    []
-  );
+  const MONTHS = useMemo(() => ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ],[]);
 
   useEffect(() => {
     const getStats = async () => {

@@ -33,6 +33,25 @@ export default function DiscountList(){
         showNotificationMessage();
     };
 
+//------------ TEST CASE -----------------
+
+//This test case renders the information for all of the discounts in the discount list to show that it is being properly accessed
+//When you click "View Discounts" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+const runTest = () => {
+  discounts.forEach((discount) => {
+    console.log('ID:', discount._id);
+        console.log('Code:', discount.code);
+        console.log('Value:', discount.value);
+        console.log('Condition:', discount.condition);
+        console.log('==========================');
+  });
+};
+
+runTest();
+
+//------------ END TEST CASE -----------------
+
     const columns = [
         { field: "_id", headerName: "ID", width: 250 },
         { field: "code", headerName: "Discount Code", width: 250 },

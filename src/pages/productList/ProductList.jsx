@@ -33,6 +33,26 @@ export default function ProductList() {
     showNotificationMessage();
   };
  
+//------------ TEST CASE -----------------
+
+//This test case renders the information for all of the products in the product list to show that it is being properly accessed
+//When you click "View Products" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+const runTest = () => {
+  products.forEach((product) => {
+    console.log('Product ID: ' + product._id);
+    console.log('Product Title: ' + product.title);
+    console.log('Product Quantity: ' + product.quantity);
+    console.log('Product Price: ' + product.price);
+    console.log('Product Category: ' + product.categories[0]);
+    console.log('===================================');
+  });
+};
+
+runTest();
+
+//------------ END TEST CASE -----------------
+  
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
     { field: "product", headerName: "Product", width: 350,

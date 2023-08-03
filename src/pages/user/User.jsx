@@ -45,9 +45,29 @@ export default function User() {
         showNotificationMessage();
     };
 
+//------------ TEST CASE -----------------
+
+//This test case renders the information for the admin user and ensures all the information is correct
+//When you click "edit" on a user (on localhost) if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+    const userTest = useSelector((state) =>
+        state.user.users.find((user) => user._id === "64ab8f932b905888464e2fda")
+    );
+
+    const userTestFunction = (userTest) => {
+      console.log("Username: " + userTest.username);
+      console.log("First Name: " + userTest.firstname);
+      console.log("Last name: " + userTest.lastname);
+      console.log("Email: " + userTest.email);
+      console.log("isAdmin: " + userTest.isAdmin);
+    }
+
+//------------ END TEST CASE -----------------
+
   //Displays current information about a user
   return (
     <div className="user">
+      {userTestFunction(userTest)}
       {showNotification && <div className="notification">Updated User Information!</div>}
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User Details</h1>

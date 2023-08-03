@@ -33,6 +33,28 @@ export default function UserList() {
     showNotificationMessage();
   };
 
+
+//------------ TEST CASE -----------------
+
+//This test case renders the information for all of the users in the user list
+//When you click "View Users" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+const runTest = () => {
+  users.forEach((user) => {
+    console.log('ID: ' + user._id);
+    console.log('Username: ' + user.username);
+    console.log('Email: ' + user.email);
+    console.log('isAdmin: ' + user.isAdmin);
+    console.log("========================");
+  });
+};
+
+runTest();
+
+//------------ END TEST CASE -----------------
+
+
+
   const columns = [
     { field: "_id", headerName: "ID", width: 225 },
     {

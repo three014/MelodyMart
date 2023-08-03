@@ -32,6 +32,34 @@ export default function OrderList(){
         );
     };
 
+    //------------ TEST CASE -----------------
+
+//This test case renders the information for all of the orders in the orders list to show that it is being properly accessed
+//When you click "View Orders" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+    const orderListTestFunction = (orders) => {
+        orders.forEach((order) => {
+        console.log('Order ID: ' + order._id);
+        console.log('User ID: ' + order.userID);
+        console.log('Username: ' + getUsernameFromID(order.userID));
+        console.log('Products (listed below):');
+        order.products.forEach((product) => {
+            console.log('      Product ID: ' + product.productID);
+            console.log('      Quantity: ' + product.quantity);
+        });
+        console.log('Total Amount: ' + order.amount);
+        console.log('Address: ' + order.address);
+        console.log('Order Status: ' + order.status);
+        console.log('Created At: ' + order.createdAt);
+        console.log('Updated At: ' + order.updatedAt);
+        console.log('===================================');
+        });
+    };
+
+    orderListTestFunction(orders, users);
+
+//------------ END TEST CASE -----------------
+
     const columns = [
         { field: "_id", headerName: "ID", width: 100 },
         { field: "userID", headerName: "User ID", width: 150 },

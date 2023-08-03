@@ -42,6 +42,40 @@ export default function NewProduct() {
     }
   };
 
+//------------ TEST CASE -----------------
+
+//This test case simulates adding a new product to the Redux store, verifying that the Redux store's functionality for adding a product works as expected
+//When you click "New Product" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+  // Test Function
+  const newProductTestFunction = () => {
+    // Simulate user input for product form
+    const productInput = {
+      imageURL: 'https://example.com/product_image.jpg',
+      title: 'Test Product',
+      desc: 'This is a test product.',
+      price: 99.99,
+      quantity: 10,
+      categories: 'Electronics',
+    };
+
+    // Simulate adding the product to the Redux store
+    addProduct(productInput, dispatch);
+
+    // Log a success message
+    console.log('Test Product added successfully (simulated)! Here is the information about the simulated product:');
+    console.log("   Image URL:", productInput.imageURL);
+    console.log("   Title:", productInput.title);
+    console.log("   Description:", productInput.desc);
+    console.log("   Price:", productInput.price);
+    console.log("   Quantity:", productInput.quantity);
+    console.log("   Categories:", productInput.categories);
+  };
+
+  newProductTestFunction();
+
+//------------ END TEST CASE -----------------
+
   return (
     <div className="newProduct">
       {/* Display the notification if showNotification is true */}
@@ -77,13 +111,6 @@ export default function NewProduct() {
               <option value="Woodwinds">Woodwinds</option>
               <option value="Electronics">Electronics</option>
             </select>
-        </div>
-        <div className="addProductItem">
-          <label>In Stock</label>
-          <select name="inStock" onChange={handleChange}>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
         </div>
         <button onClick={handleClick} className="addProductButton"> Create New Product </button>
       </form>

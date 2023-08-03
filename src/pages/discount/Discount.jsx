@@ -44,6 +44,15 @@ export default function Discount(){
         showNotificationMessage(); 
     };
 
+
+    //------------ TEST CASES -----------------
+
+   
+
+    
+
+    //------------ END TEST CASES -----------------
+
     //Displays current information about a discount
     return(
         <div className="discount">

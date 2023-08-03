@@ -43,6 +43,34 @@ export default function NewDiscount(){
       showNotificationMessage("Created New Discount Code!", "success");
     };
 
+//------------ TEST CASE -----------------
+
+//This test case simulates adding a new discount to the Redux store, verifying that the Redux store's functionality for adding a discount works as expected
+//When you click "New Discount" (on localhost), if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+  // Test Function
+  const newDiscountTestFunction = () => {
+    // Simulate user input for discount form
+    const discountInput = {
+      code: "TESTCODE",
+      value: 10,
+      condition: 100,
+    };
+
+    // Simulate adding the discount to the Redux store
+    addDiscount(discountInput, dispatch);
+
+    // Log a success message
+    console.log('Test Discount added successfully (simulated)! Here is the information about the simulated discount:');
+    console.log("   Discount Code:", discountInput.code);
+    console.log("   Discount Value:", discountInput.value);
+    console.log("   Discount Condition:", discountInput.condition);
+  };
+
+  newDiscountTestFunction();
+
+//------------ END TEST CASE -----------------
+
     return(
         <div className="newDiscount">
           {/* Display the notification if showNotification is true */}

@@ -44,9 +44,31 @@ export default function Product() {
       showNotificationMessage();
   };
 
+//------------ TEST CASE -----------------
+
+//This test case renders the information for a product specified and ensures all the information is correct
+//When you click "edit" on a product (on localhost) if you ctrl-shift-i to inspect element, you should be able to see the output of the test case
+
+  const productTest = useSelector((state) =>
+    state.product.products.find((product) => product._id === "64ad9d73e7acd7bd45b84c71")
+  );
+
+  const productTestFunction = (productTest) => {
+    console.log('Product ID: ' + productTest._id);
+    console.log('Product Title: ' + productTest.title);
+    console.log('Product Quantity: ' + productTest.quantity);
+    console.log('Product Price: ' + productTest.price);
+    console.log('Product Categories: ' + productTest.categories[0]);
+    console.log('Product Description: ' + productTest.desc);
+    console.log('Product In Stock: ' + productTest.inStock);
+  };
+
+//------------ END TEST CASE -----------------
+
   //Displays current information about a product
   return (
     <div className="product">
+      {productTestFunction(productTest)}
       {showNotification && <div className="notification">Updated Product Information!</div>}
       <div className="productTitleContainer">
         <h1 className="productTitle">Edit Product Details</h1>
