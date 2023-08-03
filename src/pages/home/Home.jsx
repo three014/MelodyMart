@@ -8,7 +8,6 @@ import { userRequest } from "../../requestMethods";
 
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
-
   const MONTHS = useMemo(() => ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ],[]);
 
   useEffect(() => {
@@ -29,12 +28,7 @@ export default function Home() {
   return (
     <div className="home">
       <FeaturedInfo />
-      <Chart
-        data={userStats}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
+      <Chart data={userStats} title="User Analytics" grid dataKey="Active User"/>
     </div>
   );
 }
