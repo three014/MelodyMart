@@ -190,14 +190,18 @@ impl Remove {
         db: Client,
     ) -> Result<String, Box<dyn Error + Send + Sync + 'static>> {
         let users = db.database(&self.database).collection::<Document>("users");
-        let pipeline = vec![doc! {
-            "$sample": {
-                "size": self.num_users
+        let pipeline = vec![
+            doc! {
+                "$sample": {
+                    "size": self.num_users
+                }
             },
-            "$project": {
-                "_id": 1
+            doc! {
+                "$project": {
+                    "_id": 1
+                }
             }
-        }];
+        ];
         let ids = users.aggregate(pipeline, None).await?;
         let ids: Vec<Document> = ids.filter_map(Result::ok).collect().await;
         let query = doc! {
